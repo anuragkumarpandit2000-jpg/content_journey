@@ -1,0 +1,9 @@
+.env
+*.env
+node_modules/
+.cache/
+dist/
+out/
+video#*/out/
+video#*/node_modules/
+*.mp4

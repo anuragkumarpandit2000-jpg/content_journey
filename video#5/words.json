@@ -1,0 +1,622 @@
+[
+  {
+    "word": "Arre",
+    "start": 0.5,
+    "end": 0.855
+  },
+  {
+    "word": "bro,",
+    "start": 0.855,
+    "end": 1.21
+  },
+  {
+    "word": "kya",
+    "start": 1.21,
+    "end": 1.477
+  },
+  {
+    "word": "tumhe",
+    "start": 1.477,
+    "end": 1.921
+  },
+  {
+    "word": "pata",
+    "start": 1.921,
+    "end": 2.276
+  },
+  {
+    "word": "hai",
+    "start": 2.276,
+    "end": 2.542
+  },
+  {
+    "word": "ye",
+    "start": 2.542,
+    "end": 2.72
+  },
+  {
+    "word": "video",
+    "start": 2.72,
+    "end": 3.164
+  },
+  {
+    "word": "jo",
+    "start": 3.164,
+    "end": 3.342
+  },
+  {
+    "word": "tum",
+    "start": 3.342,
+    "end": 3.608
+  },
+  {
+    "word": "screen",
+    "start": 3.608,
+    "end": 4.141
+  },
+  {
+    "word": "pe",
+    "start": 4.141,
+    "end": 4.318
+  },
+  {
+    "word": "dekh",
+    "start": 4.318,
+    "end": 4.674
+  },
+  {
+    "word": "rahe",
+    "start": 4.674,
+    "end": 5.029
+  },
+  {
+    "word": "ho,",
+    "start": 5.029,
+    "end": 5.295
+  },
+  {
+    "word": "isse",
+    "start": 5.295,
+    "end": 5.65
+  },
+  {
+    "word": "kisi",
+    "start": 5.65,
+    "end": 6.006
+  },
+  {
+    "word": "human",
+    "start": 6.006,
+    "end": 6.45
+  },
+  {
+    "word": "ne",
+    "start": 6.45,
+    "end": 6.627
+  },
+  {
+    "word": "record",
+    "start": 6.627,
+    "end": 7.16
+  },
+  {
+    "word": "ya",
+    "start": 7.16,
+    "end": 7.338
+  },
+  {
+    "word": "edit",
+    "start": 7.338,
+    "end": 7.693
+  },
+  {
+    "word": "nahi",
+    "start": 7.693,
+    "end": 8.048
+  },
+  {
+    "word": "kiya?",
+    "start": 8.048,
+    "end": 8.492
+  },
+  {
+    "word": "Ye",
+    "start": 8.842,
+    "end": 9.044
+  },
+  {
+    "word": "script",
+    "start": 9.044,
+    "end": 9.65
+  },
+  {
+    "word": "AI",
+    "start": 9.65,
+    "end": 9.852
+  },
+  {
+    "word": "ne",
+    "start": 9.852,
+    "end": 10.054
+  },
+  {
+    "word": "likhi",
+    "start": 10.054,
+    "end": 10.558
+  },
+  {
+    "word": "hai,",
+    "start": 10.558,
+    "end": 10.962
+  },
+  {
+    "word": "ye",
+    "start": 10.962,
+    "end": 11.164
+  },
+  {
+    "word": "voice",
+    "start": 11.164,
+    "end": 11.669
+  },
+  {
+    "word": "neural",
+    "start": 11.669,
+    "end": 12.275
+  },
+  {
+    "word": "network",
+    "start": 12.275,
+    "end": 12.982
+  },
+  {
+    "word": "se",
+    "start": 12.982,
+    "end": 13.184
+  },
+  {
+    "word": "generate",
+    "start": 13.184,
+    "end": 13.991
+  },
+  {
+    "word": "hui",
+    "start": 13.991,
+    "end": 14.294
+  },
+  {
+    "word": "hai,",
+    "start": 14.294,
+    "end": 14.698
+  },
+  {
+    "word": "ye",
+    "start": 15.048,
+    "end": 15.288
+  },
+  {
+    "word": "3D",
+    "start": 15.288,
+    "end": 15.528
+  },
+  {
+    "word": "Three.js",
+    "start": 15.528,
+    "end": 16.488
+  },
+  {
+    "word": "kinetic",
+    "start": 16.488,
+    "end": 17.328
+  },
+  {
+    "word": "typography",
+    "start": 17.328,
+    "end": 18.528
+  },
+  {
+    "word": "code",
+    "start": 18.528,
+    "end": 19.008
+  },
+  {
+    "word": "se",
+    "start": 19.008,
+    "end": 19.248
+  },
+  {
+    "word": "render",
+    "start": 19.248,
+    "end": 19.968
+  },
+  {
+    "word": "hui",
+    "start": 19.968,
+    "end": 20.328
+  },
+  {
+    "word": "hai,",
+    "start": 20.328,
+    "end": 20.808
+  },
+  {
+    "word": "aur",
+    "start": 21.158,
+    "end": 21.455
+  },
+  {
+    "word": "ye",
+    "start": 21.455,
+    "end": 21.654
+  },
+  {
+    "word": "video",
+    "start": 21.654,
+    "end": 22.149
+  },
+  {
+    "word": "mere",
+    "start": 22.149,
+    "end": 22.546
+  },
+  {
+    "word": "laptop",
+    "start": 22.546,
+    "end": 23.141
+  },
+  {
+    "word": "band",
+    "start": 23.141,
+    "end": 23.538
+  },
+  {
+    "word": "hone",
+    "start": 23.538,
+    "end": 23.934
+  },
+  {
+    "word": "ke",
+    "start": 23.934,
+    "end": 24.132
+  },
+  {
+    "word": "baad",
+    "start": 24.132,
+    "end": 24.529
+  },
+  {
+    "word": "cloud",
+    "start": 24.529,
+    "end": 25.025
+  },
+  {
+    "word": "se",
+    "start": 25.025,
+    "end": 25.223
+  },
+  {
+    "word": "khud",
+    "start": 25.223,
+    "end": 25.62
+  },
+  {
+    "word": "upload",
+    "start": 25.62,
+    "end": 26.215
+  },
+  {
+    "word": "ho",
+    "start": 26.215,
+    "end": 26.413
+  },
+  {
+    "word": "rahi",
+    "start": 26.413,
+    "end": 26.809
+  },
+  {
+    "word": "hai!",
+    "start": 26.809,
+    "end": 27.206
+  },
+  {
+    "word": "Crazy",
+    "start": 27.556,
+    "end": 28.121
+  },
+  {
+    "word": "lag",
+    "start": 28.121,
+    "end": 28.46
+  },
+  {
+    "word": "raha",
+    "start": 28.46,
+    "end": 28.912
+  },
+  {
+    "word": "hai",
+    "start": 28.912,
+    "end": 29.251
+  },
+  {
+    "word": "na",
+    "start": 29.251,
+    "end": 29.477
+  },
+  {
+    "word": "bro?",
+    "start": 29.477,
+    "end": 29.929
+  },
+  {
+    "word": "Ab",
+    "start": 29.929,
+    "end": 30.155
+  },
+  {
+    "word": "se",
+    "start": 30.155,
+    "end": 30.381
+  },
+  {
+    "word": "roz",
+    "start": 30.381,
+    "end": 30.72
+  },
+  {
+    "word": "ek",
+    "start": 30.72,
+    "end": 30.946
+  },
+  {
+    "word": "aisi",
+    "start": 30.946,
+    "end": 31.397
+  },
+  {
+    "word": "hi",
+    "start": 31.397,
+    "end": 31.623
+  },
+  {
+    "word": "video",
+    "start": 31.623,
+    "end": 32.188
+  },
+  {
+    "word": "bina",
+    "start": 32.188,
+    "end": 32.64
+  },
+  {
+    "word": "ungli",
+    "start": 32.64,
+    "end": 33.205
+  },
+  {
+    "word": "hilaye",
+    "start": 33.205,
+    "end": 33.883
+  },
+  {
+    "word": "post",
+    "start": 33.883,
+    "end": 34.335
+  },
+  {
+    "word": "hogi!",
+    "start": 34.335,
+    "end": 34.9
+  },
+  {
+    "word": "Agar",
+    "start": 35.25,
+    "end": 35.603
+  },
+  {
+    "word": "tum",
+    "start": 35.603,
+    "end": 35.868
+  },
+  {
+    "word": "bhi",
+    "start": 35.868,
+    "end": 36.133
+  },
+  {
+    "word": "apna",
+    "start": 36.133,
+    "end": 36.486
+  },
+  {
+    "word": "pura",
+    "start": 36.486,
+    "end": 36.839
+  },
+  {
+    "word": "content",
+    "start": 36.839,
+    "end": 37.457
+  },
+  {
+    "word": "creation",
+    "start": 37.457,
+    "end": 38.163
+  },
+  {
+    "word": "autopilot",
+    "start": 38.163,
+    "end": 38.957
+  },
+  {
+    "word": "pe",
+    "start": 38.957,
+    "end": 39.134
+  },
+  {
+    "word": "daalna",
+    "start": 39.134,
+    "end": 39.664
+  },
+  {
+    "word": "chahte",
+    "start": 39.664,
+    "end": 40.193
+  },
+  {
+    "word": "ho,",
+    "start": 40.193,
+    "end": 40.458
+  },
+  {
+    "word": "to",
+    "start": 40.808,
+    "end": 41.003
+  },
+  {
+    "word": "mujhe",
+    "start": 41.003,
+    "end": 41.492
+  },
+  {
+    "word": "follow",
+    "start": 41.492,
+    "end": 42.078
+  },
+  {
+    "word": "karke",
+    "start": 42.078,
+    "end": 42.567
+  },
+  {
+    "word": "comment",
+    "start": 42.567,
+    "end": 43.251
+  },
+  {
+    "word": "me",
+    "start": 43.251,
+    "end": 43.446
+  },
+  {
+    "word": "'AI",
+    "start": 43.446,
+    "end": 43.739
+  },
+  {
+    "word": "CODE'",
+    "start": 43.739,
+    "end": 44.228
+  },
+  {
+    "word": "likh",
+    "start": 44.228,
+    "end": 44.619
+  },
+  {
+    "word": "do,",
+    "start": 44.619,
+    "end": 44.912
+  },
+  {
+    "word": "main",
+    "start": 45.262,
+    "end": 45.646
+  },
+  {
+    "word": "is",
+    "start": 45.646,
+    "end": 45.838
+  },
+  {
+    "word": "pure",
+    "start": 45.838,
+    "end": 46.222
+  },
+  {
+    "word": "zero-cost",
+    "start": 46.222,
+    "end": 47.086
+  },
+  {
+    "word": "pipeline",
+    "start": 47.086,
+    "end": 47.854
+  },
+  {
+    "word": "ka",
+    "start": 47.854,
+    "end": 48.046
+  },
+  {
+    "word": "source",
+    "start": 48.046,
+    "end": 48.622
+  },
+  {
+    "word": "code",
+    "start": 48.622,
+    "end": 49.006
+  },
+  {
+    "word": "aur",
+    "start": 49.006,
+    "end": 49.294
+  },
+  {
+    "word": "tutorial",
+    "start": 49.294,
+    "end": 50.062
+  },
+  {
+    "word": "DM",
+    "start": 50.062,
+    "end": 50.254
+  },
+  {
+    "word": "me",
+    "start": 50.254,
+    "end": 50.446
+  },
+  {
+    "word": "bhej",
+    "start": 50.446,
+    "end": 50.83
+  },
+  {
+    "word": "doonga!",
+    "start": 50.83,
+    "end": 51.502
+  },
+  {
+    "word": "Aur",
+    "start": 51.502,
+    "end": 51.79
+  },
+  {
+    "word": "haan,",
+    "start": 51.79,
+    "end": 52.27
+  },
+  {
+    "word": "follow",
+    "start": 52.27,
+    "end": 52.846
+  },
+  {
+    "word": "karna",
+    "start": 52.846,
+    "end": 53.326
+  },
+  {
+    "word": "mat",
+    "start": 53.326,
+    "end": 53.614
+  },
+  {
+    "word": "bhoolna.",
+    "start": 53.614,
+    "end": 54.382
+  }
+]
