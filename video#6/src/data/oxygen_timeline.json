@@ -1,0 +1,86 @@
+[
+  {
+    "stage": "Hook",
+    "startSec": 0,
+    "endSec": 3.8,
+    "text": "What if Earth lost all oxygen for just 5 seconds?"
+  },
+  {
+    "stage": "Hook",
+    "startSec": 3.8,
+    "endSec": 7.5,
+    "text": "Think you can just hold your breath? Think again."
+  },
+  {
+    "stage": "1 sec",
+    "startSec": 7.5,
+    "endSec": 11.2,
+    "text": "Second one: The daytime sky turns pitch black."
+  },
+  {
+    "stage": "1 sec",
+    "startSec": 11.2,
+    "endSec": 14.8,
+    "text": "Without oxygen to scatter sunlight, it is instant midnight."
+  },
+  {
+    "stage": "2 sec",
+    "startSec": 14.8,
+    "endSec": 18.4,
+    "text": "Second two: Your inner ears explode from the sudden pressure drop."
+  },
+  {
+    "stage": "2 sec",
+    "startSec": 18.4,
+    "endSec": 22.1,
+    "text": "And with no ozone layer, raw UV light cooks your skin."
+  },
+  {
+    "stage": "3 sec",
+    "startSec": 22.1,
+    "endSec": 27.1,
+    "text": "Second three: Every concrete skyscraper and bridge collapses into dust."
+  },
+  {
+    "stage": "3 sec",
+    "startSec": 27.1,
+    "endSec": 31.5,
+    "text": "Oxygen is the chemical binder holding concrete together."
+  },
+  {
+    "stage": "4 sec",
+    "startSec": 31.5,
+    "endSec": 33.8,
+    "text": "Second four: Every engine dies."
+  },
+  {
+    "stage": "4 sec",
+    "startSec": 33.8,
+    "endSec": 39.6,
+    "text": "Billions of cars stall and airplanes plunge out of the sky."
+  },
+  {
+    "stage": "5 sec",
+    "startSec": 39.6,
+    "endSec": 43.1,
+    "text": "Second five: The ground vanishes beneath your feet."
+  },
+  {
+    "stage": "5 sec",
+    "startSec": 43.1,
+    "endSec": 48.8,
+    "text": "Earth's crust is 45% oxygen. Without it, the ground shatters into freefall."
+  },
+  {
+    "stage": "Outro",
+    "startSec": 48.8,
+    "endSec": 51.5,
+    "text": "And then, oxygen returns. Take a deep breath."
+  },
+  {
+    "stage": "Outro",
+    "startSec": 51.5,
+    "endSec": 55,
+    "text": "You will never take 5 seconds for granted again."
+  }
+]

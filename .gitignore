@@ -7,3 +7,4 @@ out/
 video#*/out/
 video#*/node_modules/
 *.mp4
+analysis_ref/
