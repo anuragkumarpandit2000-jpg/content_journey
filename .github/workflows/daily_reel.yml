@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: 🐍 Setup Python 3.11
         uses: actions/setup-python@v5
@@ -54,7 +53,7 @@ jobs:
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           INSTAGRAM_ACCOUNT_ID: ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
         run: |
-          LATEST_VIDEO=$(ls -td video#*/out/master_reel.mp4 | head -1)
+          LATEST_VIDEO=$(ls -td video#*/out/master_reel*.mp4 | head -1)
           TAG="reel-${{ github.run_id }}"
           gh release create "$TAG" "$LATEST_VIDEO" --title "Daily Reel $TAG" --notes "Auto-generated reel"
           PUBLIC_URL="https://github.com/${{ github.repository }}/releases/download/$TAG/$(basename "$LATEST_VIDEO")"
