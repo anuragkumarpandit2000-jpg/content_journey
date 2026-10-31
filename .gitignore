@@ -8,3 +8,9 @@ video#*/out/
 video#*/node_modules/
 *.mp4
 analysis_ref/
+raw_frames/
+anime_frames/
+sample_anime_frames/
+parallel_test/
+*.jpg
+!video#*/public/**
