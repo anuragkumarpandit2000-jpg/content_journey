@@ -27,6 +27,39 @@ ROOT_DIR = Path("D:/anurag/content_journey")
 SESSION_PATH = ROOT_DIR / "session.json"
 AUTOPILOT_LEDGER_PATH = ROOT_DIR / "autopilot_ledger.json"
 DM_LEDGER_PATH = ROOT_DIR / "auto_dm_ledger.json"
+LOCK_FILE = ROOT_DIR / "auto_dm_responder.lock"
+
+def acquire_lock():
+    """Ensure single active instance to prevent rate limits and race conditions."""
+    if LOCK_FILE.exists():
+        try:
+            with open(LOCK_FILE, "r") as f:
+                pid = int(f.read().strip())
+            import ctypes
+            PROCESS_QUERY_INFORMATION = 0x0400
+            handle = ctypes.windll.kernel32.OpenProcess(PROCESS_QUERY_INFORMATION, 0, pid)
+            if handle != 0:
+                ctypes.windll.kernel32.CloseHandle(handle)
+                return False  # Active process exists
+        except Exception:
+            pass
+    try:
+        with open(LOCK_FILE, "w") as f:
+            f.write(str(os.getpid()))
+        return True
+    except Exception:
+        return True
+
+def release_lock():
+    """Release single active instance lock."""
+    try:
+        if LOCK_FILE.exists():
+            with open(LOCK_FILE, "r") as f:
+                pid = int(f.read().strip())
+            if pid == os.getpid():
+                LOCK_FILE.unlink()
+    except Exception:
+        pass
 
 # Base GitHub URL for raw PDF downloads
 GITHUB_RAW_BASE = "https://github.com/anuragkumarpandit2000-jpg/content_journey/raw/main/deliverables"
@@ -99,6 +132,23 @@ VIDEO_CONFIG = {
             "3. Syllable-level dynamic audio cuts with zero manual timeline editing\n"
             "4. Hands-free daily cloud releases even when your laptop is sleeping\n\n"
             "Check the full PDF for architectural diagrams and boilerplates! 🚀"
+        )
+    },
+    "video#5": {
+        "title": "Turn Your Smartphone into a ₹50 Lakh Hollywood Motion Rig in Blender",
+        "keywords": ["blender", "rig", "camera", "motion", "osc", "link", "script", "tutorial", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video5_blender_motion_rig.pdf",
+        "pdf_url": f"{GITHUB_RAW_BASE}/guide_video5_blender_motion_rig.pdf",
+        "message": (
+            "Hey @{username}! 🎬✨ Here is your requested Smartphone to Hollywood Motion Rig in Blender Master Guide!\n\n"
+            "📥 Direct PDF Download Link:\n"
+            f"{GITHUB_RAW_BASE}/guide_video5_blender_motion_rig.pdf\n\n"
+            "⚡ What's inside this Master Guide:\n"
+            "1. Free iOS & Android IMU sensor app configuration (VirtuCamera & Sensors2OSC)\n"
+            "2. Zero-latency UDP OSC bridge script for Blender 4.x / 5.x\n"
+            "3. Live 60 FPS quaternion keyframe baking into Blender Action timeline\n"
+            "4. Post-capture smoothing secrets for organic, cinematic handheld camera moves\n\n"
+            "Check the full PDF for copy-pasteable Blender Python script! Save this message 💾"
         )
     }
 }
@@ -249,26 +299,44 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
         except Exception as e:
             logging.error(f"  Error processing media {media_code} ({folder}): {e}")
 
-def run_responder(loop_mode=False, interval_sec=60, dry_run=False):
-    """Main runner for auto DM responder."""
+def run_responder(loop_mode=False, interval_sec=30, dry_run=False):
+    """Main runner for auto DM responder with ultra-fast sub-minute response."""
+    if not acquire_lock():
+        logging.info("Another responder daemon is already running and monitoring comments. Exiting gracefully.")
+        return
+
+    import atexit
+    atexit.register(release_lock)
+
     logging.info("====================================================")
     logging.info("🤖 AUTONOMOUS INSTAGRAM DM RESPONDER ACTIVATED")
+    logging.info(f"⚡ Mode: {'Continuous Loop (every ' + str(interval_sec) + 's)' if loop_mode else 'Single Pass'}")
     logging.info("====================================================")
 
     cl = get_instagram_client()
 
-    if loop_mode:
-        logging.info(f"Running in continuous daemon mode (polling every {interval_sec}s)...")
-        while True:
-            try:
-                process_comments(cl, dry_run=dry_run)
-            except Exception as e:
-                logging.error(f"Error during polling cycle: {e}")
-            time.sleep(interval_sec)
-    else:
-        process_comments(cl, dry_run=dry_run)
+    try:
+        if loop_mode:
+            logging.info(f"Running high-frequency monitor (checking every {interval_sec}s for sub-minute delivery)...")
+            while True:
+                try:
+                    process_comments(cl, dry_run=dry_run)
+                except Exception as e:
+                    logging.error(f"Error during polling cycle: {e}")
+                time.sleep(interval_sec)
+        else:
+            process_comments(cl, dry_run=dry_run)
+    finally:
+        release_lock()
 
 if __name__ == "__main__":
     dry = "--dry-run" in sys.argv
     loop = "--loop" in sys.argv
-    run_responder(loop_mode=loop, dry_run=dry)
+    interval = 30
+    if "--interval" in sys.argv:
+        try:
+            idx = sys.argv.index("--interval")
+            interval = int(sys.argv[idx + 1])
+        except Exception:
+            interval = 30
+    run_responder(loop_mode=loop, interval_sec=interval, dry_run=dry)
