@@ -19,8 +19,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
     handlers=[
-        logging.StreamHandler(sys.stdout),
-        logging.FileHandler("D:/anurag/content_journey/auto_dm.log", encoding="utf-8")
+        logging.StreamHandler(sys.stdout)
     ]
 )
 
