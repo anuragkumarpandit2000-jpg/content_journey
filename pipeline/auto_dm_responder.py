@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import json
+import random
 import logging
 from pathlib import Path
 from datetime import datetime
@@ -63,6 +64,21 @@ def release_lock():
 
 # Official Live Website Portal URL on Netlify (Ultra-Short & Branded)
 PORTAL_BASE = "https://parker-render.netlify.app"
+
+# Natural Public Comment Reply Variations (Prevents Instagram duplicate spam filters)
+REPLY_TEMPLATES_FOLLOWING = [
+    "@{username} Check your DM! 🚀 Blueprint bhej diya hai 📥",
+    "@{username} Check your DM! Sent the complete guide 📩✨",
+    "@{username} Just sent to your DM! Check message requests if not visible 🚀",
+    "@{username} Link sent to your DM! Download karein aur test karein 📥🔥",
+    "@{username} Check your DM! Guide and resources sent ⚡",
+]
+
+REPLY_TEMPLATES_NOT_FOLLOWING = [
+    "@{username} Check your DM! 🔒 Follow @parker.render to unlock the link ✨",
+    "@{username} Sent you a DM! Follow karke link instantly unlock karein 🚀",
+    "@{username} Check your DM! Pehle follow karein fir link unlock ho jayega 📩",
+]
 
 # Video Configuration Matrix with Unique Codes
 VIDEO_CONFIG = {
@@ -357,6 +373,20 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
                             logging.info(f"    ❤️ Liked comment {comment.pk}")
                         except Exception as e:
                             logging.warning(f"    Could not like comment: {e}")
+
+                        # Public reply to comment notifying them to check their DM
+                        try:
+                            reply_text = random.choice(
+                                REPLY_TEMPLATES_FOLLOWING if following else REPLY_TEMPLATES_NOT_FOLLOWING
+                            ).format(username=username)
+                            cl.media_comment(
+                                media_id=str(media_pk),
+                                text=reply_text,
+                                replied_to_comment_id=int(comment.pk)
+                            )
+                            logging.info(f"    💬 Replied to comment {comment.pk}: '{reply_text}'")
+                        except Exception as reply_err:
+                            logging.warning(f"    Could not reply to comment: {reply_err}")
 
                         # Record in ledger
                         dm_ledger.setdefault("replies", []).append({
