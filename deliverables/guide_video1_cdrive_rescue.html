@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Windows C: Drive Storage Rescue & Dynamic Partition Allocation</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+    .header {
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      border: 1px solid #bfdbfe;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-left: 4px solid #2563eb;
+      padding-left: 8px;
+    }
+    p {
+      margin-bottom: 10px;
+      color: #334155;
+    }
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .card-warning {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid #f59e0b;
+    }
+    .card-success {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #10b981;
+    }
+    code {
+      font-family: "Fira Code", Consolas, Monaco, "Courier New", monospace;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-family: "Fira Code", Consolas, monospace;
+      font-size: 11.5px;
+      line-height: 1.5;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+    pre code {
+      background: transparent;
+      color: #38bdf8;
+      border: none;
+      padding: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer {
+      margin-top: 30px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 12px;
+      text-align: center;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="badge">Official Solution Blueprint • Video #1</div>
+    <h1>Windows C: Drive Storage Rescue & Dynamic Partition Allocation</h1>
+    <div class="subtitle">Complete technical guide to free up 30–60 GB and reallocate free space from D/E drives without data loss.</div>
+    <div class="meta-bar">
+      <span>Target System: Windows 10 & 11 (64-Bit)</span>
+      <span>Published By: @parker.render</span>
+      <span>Zero Third-Party Bloatware</span>
+    </div>
+  </div>
+
+  <h2>1. Why Does C: Drive Keep Filling Up Silently?</h2>
+  <p>Most users believe that deleting desktop files or emptying the Recycle Bin solves storage issues. In reality, Windows accumulates massive background storage hogs over months of use:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Storage Culprit</th>
+        <th>Default Location</th>
+        <th>Avg. Size</th>
+        <th>Safe To Clean?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>WinSxS (Component Store)</strong></td>
+        <td><code>C:\Windows\WinSxS</code></td>
+        <td>8 – 15 GB</td>
+        <td>Safe via DISM tool</td>
+      </tr>
+      <tr>
+        <td><strong>Windows Update Cache</strong></td>
+        <td><code>C:\Windows\SoftwareDistribution</code></td>
+        <td>4 – 10 GB</td>
+        <td>100% Safe after stopping service</td>
+      </tr>
+      <tr>
+        <td><strong>Hibernation Cache</strong></td>
+        <td><code>C:\hiberfil.sys</code></td>
+        <td>8 – 32 GB (equal to RAM)</td>
+        <td>100% Safe to disable if on SSD</td>
+      </tr>
+      <tr>
+        <td><strong>AppData Roaming & Local</strong></td>
+        <td><code>C:\Users\&lt;User&gt;\AppData\Local</code></td>
+        <td>15 – 40 GB</td>
+        <td>Requires Junction Symlink</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Quick Wins: Reclaim 20+ GB in 3 Minutes (CLI)</h2>
+  <p>Run <strong>PowerShell as Administrator</strong> and execute these proven administrative commands:</p>
+
+  <div class="card">
+    <p><strong>Step A: Disable Hibernation (Instantly frees space equal to your system RAM, e.g., 16 GB):</strong></p>
+    <pre><code>powercfg -h off</code></pre>
+  </div>
+
+  <div class="card">
+    <p><strong>Step B: Purge Old Windows Update & Component Backups (WinSxS Deep Cleanup):</strong></p>
+    <pre><code>Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase</code></pre>
+  </div>
+
+  <div class="card">
+    <p><strong>Step C: Enable OS Binary Compression (Frees 3–5 GB without performance loss):</strong></p>
+    <pre><code>compact.exe /compactos:always</code></pre>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>3. The Plate Metaphor: Expanding C: Drive with D/E Free Space</h2>
+  <p>In Video #1, we explained the concept: <em>"Agar tumhari plate bhari hai par bhai ki plate me jagah hai, toh bhai ki plate se thoda hissa le lo!"</em></p>
+  <p>Here is how to safely reallocate space from your D: drive to C: drive without formatting your computer:</p>
+
+  <div class="card card-warning">
+    <strong>⚠️ Critical Rule of Windows Partitioning:</strong><br>
+    To extend C: drive, the <strong>Unallocated Space must be directly adjacent (to the immediate right)</strong> of the C: drive partition. If D: drive is in between, you cannot directly click "Extend Volume" without moving D:.
+  </div>
+
+  <h3>Method A: Using Built-in Windows Disk Management (GUI)</h3>
+  <ol style="padding-left: 20px; line-height: 1.8; color: #334155;">
+    <li>Press <code>Win + X</code> and select <strong>Disk Management</strong> (diskmgmt.msc).</li>
+    <li>Locate your <strong>D: Drive</strong>. Right-click and choose <strong>Shrink Volume</strong>.</li>
+    <li>Enter the amount of MB to shrink (e.g., <code>51200</code> for 50 GB). Click <strong>Shrink</strong>.</li>
+    <li>If the unallocated space appears directly next to C:, right-click <strong>C: Drive</strong> and click <strong>Extend Volume</strong>. Follow the wizard.</li>
+    <li>If D: sits between C: and the unallocated space, proceed to Method B below.</li>
+  </ol>
+
+  <h3>Method B: Using Native DISKPART CLI (Zero Data Loss)</h3>
+  <p>If you have unallocated contiguous space on the disk:</p>
+  <pre><code>diskpart
+list volume
+select volume C
+extend
+exit</code></pre>
+
+  <h2>4. Permanent Pro Solution: Directory Junctions (Symlinks)</h2>
+  <p>If you install heavy software (Android Studio, Node modules, Premiere Pro, Discord, Steam), they clutter your <code>AppData</code> on C:. You can permanently trick Windows into storing them on D: while keeping them functional on C:</p>
+  <pre><code># 1. Close the heavy application (e.g., Spotify, Discord, or Android SDK)
+# 2. Move the data folder from C: to D: drive
+Move-Item "C:\Users\username\AppData\Local\Package" "D:\AppData_Redirect\Package"
+
+# 3. Create a Directory Junction link:
+cmd /c mklink /J "C:\Users\username\AppData\Local\Package" "D:\AppData_Redirect\Package"</code></pre>
+  <p>Now all files physically live on D: drive, but Windows and apps think they are still on C: drive!</p>
+
+  <div class="card card-success">
+    <strong>✅ Expected Outcome:</strong><br>
+    Following this guide recovers <strong>25 GB to 70 GB</strong> of high-speed NVMe storage on your primary boot partition, stopping the red warning bar permanently.
+  </div>
+
+  <div class="footer">
+    Created for @parker.render Community • Keep Building Autonomous Tech
+  </div>
+
+</body>
+</html>
