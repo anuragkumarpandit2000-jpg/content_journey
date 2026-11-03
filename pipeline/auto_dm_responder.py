@@ -61,94 +61,94 @@ def release_lock():
     except Exception:
         pass
 
-# Base GitHub URL for raw PDF downloads
-GITHUB_RAW_BASE = "https://github.com/anuragkumarpandit2000-jpg/content_journey/raw/main/deliverables"
+# Official Live Website Portal URL (Replaces raw GitHub URLs)
+PORTAL_BASE = "https://anuragkumarpandit2000-jpg.github.io/content_journey"
 
-# Video Configuration Matrix
+# Video Configuration Matrix with Unique Codes
 VIDEO_CONFIG = {
     "video#1": {
         "title": "Windows C-Drive Space Rescue & Dynamic Partition Allocation",
+        "code": "DRIVE",
         "keywords": ["drive", "c drive", "partition", "space", "storage", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video1_cdrive_rescue.pdf",
-        "pdf_url": f"{GITHUB_RAW_BASE}/guide_video1_cdrive_rescue.pdf",
+        "portal_url": f"{PORTAL_BASE}/?code=DRIVE",
         "message": (
-            "Hey @{username}! 🚀 Here is your requested C-Drive Storage Rescue & Partition Reallocation Master Guide!\n\n"
-            "📥 Direct PDF Download Link:\n"
-            f"{GITHUB_RAW_BASE}/guide_video1_cdrive_rescue.pdf\n\n"
+            "Hey @{username}! 🚀 Here is your requested C-Drive Storage Rescue & Partition Master Guide!\n\n"
+            "🔗 Direct Blueprint Access (Code: DRIVE):\n"
+            f"{PORTAL_BASE}/?code=DRIVE\n\n"
             "⚡ Quick Wins to Reclaim 20+ GB in 3 Minutes:\n"
-            "1. Run CMD as Admin: `powercfg -h off` (Instantly frees space equal to your RAM)\n"
+            "1. Run CMD as Admin: `powercfg -h off` (Instantly frees RAM-sized GBs)\n"
             "2. Clean WinSxS: `Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase`\n"
-            "3. Compress OS: `compact.exe /compactos:always` (Frees 3-5 GB without performance loss)\n"
-            "4. Dynamic Partitioning: Safely expand C: using D: drive free space without formatting!\n\n"
-            "Check the full PDF for complete step-by-step commands & zero-risk guide! Save this message for future reference 💾"
+            "3. Dynamic Partitioning: Safely expand C: using D: free space without formatting!\n\n"
+            "Upar diye gaye portal link par click karke direct PDF download aur commands copy karein! 💾"
         )
     },
     "video#2": {
         "title": "2026 Mobile Optimization, Battery Longevity & Privacy Lockdown",
+        "code": "SPEED",
         "keywords": ["trick", "mobile", "hack", "battery", "phone", "speed", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video2_mobile_speedup_privacy.pdf",
-        "pdf_url": f"{GITHUB_RAW_BASE}/guide_video2_mobile_speedup_privacy.pdf",
+        "portal_url": f"{PORTAL_BASE}/?code=SPEED",
         "message": (
-            "Hey @{username}! 📱✨ Here is your complete 2026 Mobile Optimization, Battery & Privacy Lockdown Blueprint!\n\n"
-            "📥 Direct PDF Download Link:\n"
-            f"{GITHUB_RAW_BASE}/guide_video2_mobile_speedup_privacy.pdf\n\n"
+            "Hey @{username}! 📱✨ Here is your complete 2026 Mobile Optimization & Privacy Lockdown Blueprint!\n\n"
+            "🔗 Direct Blueprint Access (Code: SPEED):\n"
+            f"{PORTAL_BASE}/?code=SPEED\n\n"
             "⚡ Core Hacks Inside:\n"
-            "1. Disable Virtual RAM / RAM Plus (Stops NAND flash wear & eliminates micro-stutters)\n"
-            "2. Developer Options: Set Window, Transition & Animator scale to 0.5x for 2x snappier UI\n"
-            "3. Block 98% in-app ads & trackers: Set Private DNS to `dns.adguard.com`\n"
-            "4. Disable Google Usage & Diagnostics to stop background CPU wake-locks\n\n"
-            "Full ADB debloating terminal guide is inside the PDF. Let me know if you need help! 🚀"
+            "1. Disable Virtual RAM / RAM Plus (Stops storage wear & eliminates micro-stutters)\n"
+            "2. Developer Options: Set Window, Transition & Animator scale to 0.5x\n"
+            "3. Block 98% in-app ads & trackers with Private DNS `dns.adguard.com`\n\n"
+            "Portal link se direct PDF download karein aur full ADB cheatsheet access karein! 🚀"
         )
     },
     "video#3": {
         "title": "The ₹0 AI Content Machine: Complete Blueprint & Source Code",
+        "code": "MACHINE",
         "keywords": ["auto", "code", "free", "ai", "content", "automation", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video3_zero_cost_content_machine.pdf",
-        "pdf_url": f"{GITHUB_RAW_BASE}/guide_video3_zero_cost_content_machine.pdf",
+        "portal_url": f"{PORTAL_BASE}/?code=MACHINE",
         "message": (
             "Hey @{username}! 🤖💰 Here is the complete architecture & source code for the ₹0 AI Content Machine!\n\n"
-            "📥 Direct PDF Download Link:\n"
-            f"{GITHUB_RAW_BASE}/guide_video3_zero_cost_content_machine.pdf\n\n"
+            "🔗 Direct Blueprint Access (Code: MACHINE):\n"
+            f"{PORTAL_BASE}/?code=MACHINE\n\n"
             "⚡ What you get in this blueprint:\n"
-            "1. Gemini 2.5 Flash Native Audio WebSocket script (Free studio-quality speech synthesis)\n"
-            "2. Remotion + React declarative video component templates (Zero Adobe Premiere cost)\n"
-            "3. Autonomous Python publisher script (Instagrapi with Task Scheduler)\n"
-            "4. Dynamic audio ducking and sound design engine\n\n"
-            "Check the full PDF for copy-pasteable production scripts! Happy building! 🎬"
+            "1. Gemini 2.5 Flash Native Audio WebSocket script (Free studio speech synthesis)\n"
+            "2. Remotion + React declarative video component templates (Zero Adobe cost)\n"
+            "3. Autonomous Python publisher script (Instagrapi with Task Scheduler)\n\n"
+            "Portal link par direct PDF aur architecture boilerplate ready hai! 🎬"
         )
     },
     "video#4": {
         "title": "Autonomous Video Production with AI Agents: Architecture & Full Stack Guide",
+        "code": "AGENT",
         "keywords": ["agent", "claude", "antigravity", "remotion", "react", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video4_agentic_video_pipeline.pdf",
-        "pdf_url": f"{GITHUB_RAW_BASE}/guide_video4_agentic_video_pipeline.pdf",
+        "portal_url": f"{PORTAL_BASE}/?code=AGENT",
         "message": (
             "Hey @{username}! 🤖⚡ Here is your requested Autonomous Video Production with AI Agents Architecture Guide!\n\n"
-            "📥 Direct PDF Download Link:\n"
-            f"{GITHUB_RAW_BASE}/guide_video4_agentic_video_pipeline.pdf\n\n"
+            "🔗 Direct Blueprint Access (Code: AGENT):\n"
+            f"{PORTAL_BASE}/?code=AGENT\n\n"
             "⚡ Declarative Video Engineering:\n"
-            "1. Antigravity AI Agents orchestrating 5-scene high-retention video storyboards\n"
-            "2. Remotion React components generating 60 FPS motion graphics without Premiere Pro\n"
-            "3. Syllable-level dynamic audio cuts with zero manual timeline editing\n"
-            "4. Hands-free daily cloud releases even when your laptop is sleeping\n\n"
-            "Check the full PDF for architectural diagrams and boilerplates! 🚀"
+            "1. Antigravity AI Agents orchestrating 5-scene high-retention storyboards\n"
+            "2. Remotion React components generating 60 FPS motion graphics\n"
+            "3. Syllable-level dynamic audio cuts with zero manual timeline editing\n\n"
+            "Upar diye gaye link se PDF download karein aur agent stack explore karein! 🚀"
         )
     },
     "video#5": {
         "title": "Turn Your Smartphone into a ₹50 Lakh Hollywood Motion Rig in Blender",
+        "code": "BLENDER",
         "keywords": ["blender", "rig", "camera", "motion", "osc", "link", "script", "tutorial", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video5_blender_motion_rig.pdf",
-        "pdf_url": f"{GITHUB_RAW_BASE}/guide_video5_blender_motion_rig.pdf",
+        "portal_url": f"{PORTAL_BASE}/?code=BLENDER",
         "message": (
             "Hey @{username}! 🎬✨ Here is your requested Smartphone to Hollywood Motion Rig in Blender Master Guide!\n\n"
-            "📥 Direct PDF Download Link:\n"
-            f"{GITHUB_RAW_BASE}/guide_video5_blender_motion_rig.pdf\n\n"
-            "⚡ What's inside this Master Guide:\n"
-            "1. Free iOS & Android IMU sensor app configuration (VirtuCamera & Sensors2OSC)\n"
-            "2. Zero-latency UDP OSC bridge script for Blender 4.x / 5.x\n"
-            "3. Live 60 FPS quaternion keyframe baking into Blender Action timeline\n"
-            "4. Post-capture smoothing secrets for organic, cinematic handheld camera moves\n\n"
-            "Check the full PDF for copy-pasteable Blender Python script! Save this message 💾"
+            "🔗 Direct Blueprint Access (Code: BLENDER):\n"
+            f"{PORTAL_BASE}/?code=BLENDER\n\n"
+            "⚡ Inside your portal:\n"
+            "• Free iOS & Android IMU sensor app configuration (VirtuCamera & Sensors2OSC)\n"
+            "• Zero-latency UDP OSC bridge script for Blender 4.x / 5.x\n"
+            "• Live 60 FPS quaternion keyframe baking into Blender Action timeline\n\n"
+            "Portal link par direct PDF download aur 1-click Python script copy ready hai! 💾"
         )
     }
 }
@@ -248,9 +248,9 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
                     formatted_msg = (
                         f"Hey @{username}! 🔒\n\n"
                         f"Aapka requested '{config['title']}' ready hai!\n"
-                        f"Lekin download link unlock karne ke liye pehle @parker.render ko FOLLOW karein ✨\n\n"
+                        f"Lekin VIP Blueprint Vault unlock karne ke liye pehle @parker.render ko FOLLOW karein ✨\n\n"
                         f"👉 https://www.instagram.com/parker.render/\n\n"
-                        f"Follow karne ke baad reel par dobara comment karein ya yahan 'DONE' likhein — aapka PDF guide instantly unlock ho jayega! 🚀"
+                        f"Follow karne ke baad reel par dobara comment karein ya yahan 'DONE' likhein — aapka direct portal link (Code: {config['code']}) instantly unlock ho jayega! 🚀"
                     )
                     status_flag = "PENDING_FOLLOW"
                     log_action = "Sending Follow-Gate Prompt"
