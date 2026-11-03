@@ -61,8 +61,8 @@ def release_lock():
     except Exception:
         pass
 
-# Official Live Website Portal URL (Replaces raw GitHub URLs)
-PORTAL_BASE = "https://anuragkumarpandit2000-jpg.github.io/content_journey"
+# Official Live Website Portal URL on Netlify (Ultra-Short & Branded)
+PORTAL_BASE = "https://parker-render.netlify.app"
 
 # Video Configuration Matrix with Unique Codes
 VIDEO_CONFIG = {
@@ -71,11 +71,11 @@ VIDEO_CONFIG = {
         "code": "DRIVE",
         "keywords": ["drive", "c drive", "partition", "space", "storage", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video1_cdrive_rescue.pdf",
-        "portal_url": f"{PORTAL_BASE}/?code=DRIVE",
+        "portal_url": f"{PORTAL_BASE}/drive",
         "message": (
             "Hey @{username}! 🚀 Here is your requested C-Drive Storage Rescue & Partition Master Guide!\n\n"
             "🔗 Direct Blueprint Access (Code: DRIVE):\n"
-            f"{PORTAL_BASE}/?code=DRIVE\n\n"
+            f"{PORTAL_BASE}/drive\n\n"
             "⚡ Quick Wins to Reclaim 20+ GB in 3 Minutes:\n"
             "1. Run CMD as Admin: `powercfg -h off` (Instantly frees RAM-sized GBs)\n"
             "2. Clean WinSxS: `Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase`\n"
@@ -88,11 +88,11 @@ VIDEO_CONFIG = {
         "code": "SPEED",
         "keywords": ["trick", "mobile", "hack", "battery", "phone", "speed", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video2_mobile_speedup_privacy.pdf",
-        "portal_url": f"{PORTAL_BASE}/?code=SPEED",
+        "portal_url": f"{PORTAL_BASE}/speed",
         "message": (
             "Hey @{username}! 📱✨ Here is your complete 2026 Mobile Optimization & Privacy Lockdown Blueprint!\n\n"
             "🔗 Direct Blueprint Access (Code: SPEED):\n"
-            f"{PORTAL_BASE}/?code=SPEED\n\n"
+            f"{PORTAL_BASE}/speed\n\n"
             "⚡ Core Hacks Inside:\n"
             "1. Disable Virtual RAM / RAM Plus (Stops storage wear & eliminates micro-stutters)\n"
             "2. Developer Options: Set Window, Transition & Animator scale to 0.5x\n"
@@ -105,11 +105,11 @@ VIDEO_CONFIG = {
         "code": "MACHINE",
         "keywords": ["auto", "code", "free", "ai", "content", "automation", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video3_zero_cost_content_machine.pdf",
-        "portal_url": f"{PORTAL_BASE}/?code=MACHINE",
+        "portal_url": f"{PORTAL_BASE}/machine",
         "message": (
             "Hey @{username}! 🤖💰 Here is the complete architecture & source code for the ₹0 AI Content Machine!\n\n"
             "🔗 Direct Blueprint Access (Code: MACHINE):\n"
-            f"{PORTAL_BASE}/?code=MACHINE\n\n"
+            f"{PORTAL_BASE}/machine\n\n"
             "⚡ What you get in this blueprint:\n"
             "1. Gemini 2.5 Flash Native Audio WebSocket script (Free studio speech synthesis)\n"
             "2. Remotion + React declarative video component templates (Zero Adobe cost)\n"
@@ -122,11 +122,11 @@ VIDEO_CONFIG = {
         "code": "AGENT",
         "keywords": ["agent", "claude", "antigravity", "remotion", "react", "link", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video4_agentic_video_pipeline.pdf",
-        "portal_url": f"{PORTAL_BASE}/?code=AGENT",
+        "portal_url": f"{PORTAL_BASE}/agent",
         "message": (
             "Hey @{username}! 🤖⚡ Here is your requested Autonomous Video Production with AI Agents Architecture Guide!\n\n"
             "🔗 Direct Blueprint Access (Code: AGENT):\n"
-            f"{PORTAL_BASE}/?code=AGENT\n\n"
+            f"{PORTAL_BASE}/agent\n\n"
             "⚡ Declarative Video Engineering:\n"
             "1. Antigravity AI Agents orchestrating 5-scene high-retention storyboards\n"
             "2. Remotion React components generating 60 FPS motion graphics\n"
@@ -139,11 +139,11 @@ VIDEO_CONFIG = {
         "code": "BLENDER",
         "keywords": ["blender", "rig", "camera", "motion", "osc", "link", "script", "tutorial", "bhejo", "send", "pls", "please"],
         "pdf_name": "guide_video5_blender_motion_rig.pdf",
-        "portal_url": f"{PORTAL_BASE}/?code=BLENDER",
+        "portal_url": f"{PORTAL_BASE}/blender",
         "message": (
             "Hey @{username}! 🎬✨ Here is your requested Smartphone to Hollywood Motion Rig in Blender Master Guide!\n\n"
             "🔗 Direct Blueprint Access (Code: BLENDER):\n"
-            f"{PORTAL_BASE}/?code=BLENDER\n\n"
+            f"{PORTAL_BASE}/blender\n\n"
             "⚡ Inside your portal:\n"
             "• Free iOS & Android IMU sensor app configuration (VirtuCamera & Sensors2OSC)\n"
             "• Zero-latency UDP OSC bridge script for Blender 4.x / 5.x\n"

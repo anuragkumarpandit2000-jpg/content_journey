@@ -1,0 +1,10 @@
+/blender /index.html?code=BLENDER 200
+/machine /index.html?code=MACHINE 200
+/agent /index.html?code=AGENT 200
+/speed /index.html?code=SPEED 200
+/drive /index.html?code=DRIVE 200
+/v1 /index.html?code=DRIVE 200
+/v2 /index.html?code=SPEED 200
+/v3 /index.html?code=MACHINE 200
+/v4 /index.html?code=AGENT 200
+/v5 /index.html?code=BLENDER 200
