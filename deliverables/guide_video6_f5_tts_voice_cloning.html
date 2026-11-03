@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stop Paying $22/Month for ElevenLabs: Free Local F5-TTS Voice Cloning</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #fff; line-height: 1.6; font-size: 13px; }
+    .header { border-bottom: 3px solid #8b5cf6; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { display: inline-block; background: #f5f3ff; color: #7c3aed; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px; border: 1px solid #ddd6fe; }
+    h1 { font-size: 25px; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: #64748b; font-weight: 500; }
+    .meta-bar { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    h2 { font-size: 16px; font-weight: 800; color: #1e293b; margin-top: 20px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ""; display: inline-block; width: 6px; height: 18px; background: #8b5cf6; border-radius: 3px; }
+    p { margin-bottom: 10px; color: #334155; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+    pre { background: #0f172a; color: #f8fafc; font-family: monospace; font-size: 11.5px; padding: 14px; border-radius: 8px; overflow-x: auto; margin: 10px 0; line-height: 1.5; }
+    code { background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    ol, ul { margin-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; color: #334155; }
+    .footer { margin-top: 32px; border-top: 1px solid #e2e8f0; padding-top: 14px; text-align: center; font-size: 11px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Master Class Deliverable • Video #6</div>
+    <h1>Stop Paying $22/Month for ElevenLabs: Free Local F5-TTS Voice Cloning</h1>
+    <div class="subtitle">5-Second Zero-Shot Voice Cloning, Local PyTorch CUDA Acceleration & Hindi/English Synthesis</div>
+    <div class="meta-bar">
+      <span>Framework: F5-TTS (Flow Matching)</span>
+      <span>Hardware: NVIDIA GPU (>= 6GB VRAM)</span>
+      <span>Published by: @parker.render</span>
+    </div>
+  </div>
+
+  <h2>1. Why F5-TTS Replaces Paid Cloud TTS in 2026</h2>
+  <p>Cloud voice providers charge steep monthly fees ($22–$99/month), enforce monthly character limits, and log your proprietary voice audio. <strong>F5-TTS</strong> uses Non-Autoregressive Flow Matching with a diffusion transformer backbone to clone any voice in under 5 seconds with zero cloud dependencies.</p>
+
+  <h2>2. 1-Click Environment Setup (Python & CUDA)</h2>
+  <pre><code># 1. Create dedicated Conda environment
+conda create -n f5tts python=3.10 -y
+conda activate f5tts
+
+# 2. Install PyTorch with CUDA 12.1+ support
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# 3. Install F5-TTS and gradio interface
+pip install f5-tts gradio soundfile</code></pre>
+
+  <h2>3. Complete Python Voice Cloning Script</h2>
+  <pre><code>from f5_tts.api import F5TTS
+import soundfile as sf
+
+# Initialize model (Cached locally on GPU)
+model = F5TTS(model_type="F5-TTS", device="cuda")
+
+# Reference voice sample (5-10s clean audio)
+ref_audio = "voice_sample.wav"
+ref_text = "Namaskar dosto, aaj hum seekhenge AI automation ke naye tareeqe."
+
+# Target text to synthesize
+target_text = "F5-TTS se ab aap bina kisi monthly subscription ke studio-quality Hindi audio generate kar sakte hain!"
+
+# Generate high-fidelity cloned speech
+wav, sr, _ = model.infer(
+    ref_file=ref_audio,
+    ref_text=ref_text,
+    gen_text=target_text,
+    remove_silence=True
+)
+
+sf.write("output_cloned_voice.wav", wav, sr)
+print("✅ Voice generated successfully: output_cloned_voice.wav")</code></pre>
+
+  <h2>4. Production Tips for Ultra-Realistic Speech</h2>
+  <ol>
+    <li><strong>Reference Audio Quality:</strong> Use a 6–8 second WAV file recorded at 44.1kHz without background noise or room reverb.</li>
+    <li><strong>Accurate Reference Text:</strong> Ensure the reference transcript matches the audio verbatim including natural breathing pauses.</li>
+    <li><strong>Audio Post-Processing:</strong> Apply a subtle high-pass filter at 80Hz and gentle limiter to eliminate low-end boominess.</li>
+  </ol>
+
+  <div class="footer">Delivered automatically by @parker.render • https://parker-render.netlify.app/voice</div>
+</body>
+</html>

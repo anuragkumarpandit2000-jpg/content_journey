@@ -150,6 +150,91 @@ VIDEO_CONFIG = {
             "• Live 60 FPS quaternion keyframe baking into Blender Action timeline\n\n"
             "Portal link par direct PDF download aur 1-click Python script copy ready hai! 💾"
         )
+    },
+    "video#6": {
+        "title": "Stop Paying $22/Month for ElevenLabs: Free Local F5-TTS Voice Cloning",
+        "code": "VOICE",
+        "keywords": ["voice", "f5tts", "elevenlabs", "clone", "audio", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video6_f5_tts_voice_cloning.pdf",
+        "portal_url": f"{PORTAL_BASE}/voice",
+        "message": (
+            "Hey @{username}! 🎙️⚡ Here is your requested F5-TTS Free Local Voice Cloning Blueprint!\n\n"
+            "🔗 Direct Blueprint Access (Code: VOICE):\n"
+            f"{PORTAL_BASE}/voice\n\n"
+            "⚡ What you get inside:\n"
+            "• 5-Second voice cloning without cloud subscription fees\n"
+            "• 1-Click PyTorch & CUDA local GPU installer script\n"
+            "• Hindi, Hinglish & English natural flow matching guide\n\n"
+            "Portal link par direct PDF download aur complete Python script copy ready hai! 🚀"
+        )
+    },
+    "video#7": {
+        "title": "DeepSeek V3 Local & Cursor IDE Setup: 100x Cheaper than Claude 3.7",
+        "code": "DEEPSEEK",
+        "keywords": ["deepseek", "claude", "cursor", "model", "moe", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video7_deepseek_v3_setup.pdf",
+        "portal_url": f"{PORTAL_BASE}/deepseek",
+        "message": (
+            "Hey @{username}! ⚡💻 Here is your requested DeepSeek V3 Local & Cursor IDE Integration Guide!\n\n"
+            "🔗 Direct Blueprint Access (Code: DEEPSEEK):\n"
+            f"{PORTAL_BASE}/deepseek\n\n"
+            "⚡ Inside your guide:\n"
+            "• 1-Click Cursor IDE custom OpenAI endpoint configuration\n"
+            "• Local Ollama offline setup for zero-data logging\n"
+            "• 90%+ SWE-Bench coding prompt templates\n\n"
+            "Portal link se direct PDF download karein aur Cursor config copy karein! 🔥"
+        )
+    },
+    "video#8": {
+        "title": "20-Line Python Autonomous Agent: LangGraph, Gemini Flash & Memory",
+        "code": "BOT",
+        "keywords": ["agent", "bot", "python", "langgraph", "autonomous", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video8_python_autonomous_agent.pdf",
+        "portal_url": f"{PORTAL_BASE}/bot",
+        "message": (
+            "Hey @{username}! 🤖⚡ Here is your requested 20-Line Python Autonomous Agent Blueprint!\n\n"
+            "🔗 Direct Blueprint Access (Code: BOT):\n"
+            f"{PORTAL_BASE}/bot\n\n"
+            "⚡ What you get:\n"
+            "• 20-Line production LangGraph cyclic agent script\n"
+            "• SQLite session checkpointer for long-term memory\n"
+            "• Zero cloud cost using free Gemini 2.5 Flash API\n\n"
+            "Portal link par direct PDF aur starter boilerplate ready hai! 🚀"
+        )
+    },
+    "video#9": {
+        "title": "Instagram 4K Crystal Sharpness Hack: 1080x1920 CRF 23 FFmpeg Engine",
+        "code": "4K",
+        "keywords": ["4k", "ffmpeg", "hd", "sharp", "quality", "compress", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video9_4k_instagram_ffmpeg.pdf",
+        "portal_url": f"{PORTAL_BASE}/4k",
+        "message": (
+            "Hey @{username}! 📱🎬 Here is your requested Instagram 4K Crystal Sharpness & FFmpeg Master Guide!\n\n"
+            "🔗 Direct Blueprint Access (Code: 4K):\n"
+            f"{PORTAL_BASE}/4k\n\n"
+            "⚡ What's inside:\n"
+            "• Exact 1080x1920 CRF 23 parameters that bypass Instagram re-compression\n"
+            "• Windows 1-click drag-and-drop batch converter file\n"
+            "• BT.709 color matrix & 320kbps AAC audio settings\n\n"
+            "Portal link se PDF download karein aur batch script copy karein! 💾"
+        )
+    },
+    "video#10": {
+        "title": "Modern Web Scraping in 2026: Crawl4AI + Gemini Structured JSON",
+        "code": "CRAWL",
+        "keywords": ["crawl", "scrape", "scraper", "crawl4ai", "bs4", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video10_crawl4ai_web_scraper.pdf",
+        "portal_url": f"{PORTAL_BASE}/crawl",
+        "message": (
+            "Hey @{username}! 🕷️⚡ Here is your requested Modern Web Scraping with Crawl4AI Master Blueprint!\n\n"
+            "🔗 Direct Blueprint Access (Code: CRAWL):\n"
+            f"{PORTAL_BASE}/crawl\n\n"
+            "⚡ Highlights inside:\n"
+            "• 15-Second Crawl4AI stealth browser setup (bypasses Cloudflare)\n"
+            "• Pydantic schema-driven Gemini structured JSON extraction\n"
+            "• Token-efficient markdown conversion for LLM pipelines\n\n"
+            "Portal link par direct PDF aur complete production scraper ready hai! 🚀"
+        )
     }
 }
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>20-Line Python Autonomous Agent: LangGraph, Gemini Flash & Memory</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #fff; line-height: 1.6; font-size: 13px; }
+    .header { border-bottom: 3px solid #10b981; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { display: inline-block; background: #ecfdf5; color: #059669; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px; border: 1px solid #a7f3d0; }
+    h1 { font-size: 25px; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: #64748b; font-weight: 500; }
+    .meta-bar { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    h2 { font-size: 16px; font-weight: 800; color: #1e293b; margin-top: 20px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ""; display: inline-block; width: 6px; height: 18px; background: #10b981; border-radius: 3px; }
+    p { margin-bottom: 10px; color: #334155; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+    pre { background: #0f172a; color: #f8fafc; font-family: monospace; font-size: 11px; padding: 14px; border-radius: 8px; overflow-x: auto; margin: 10px 0; line-height: 1.5; }
+    code { background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    ol, ul { margin-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; color: #334155; }
+    .footer { margin-top: 32px; border-top: 1px solid #e2e8f0; padding-top: 14px; text-align: center; font-size: 11px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Master Class Deliverable • Video #8</div>
+    <h1>20-Line Python Autonomous Agent: LangGraph, Gemini Flash & Memory</h1>
+    <div class="subtitle">Cyclic Graph Reasoning, Dynamic Tool Calling, SQLite Checkpointer & Zero Cloud Cost</div>
+    <div class="meta-bar">
+      <span>Framework: LangGraph + LangChain</span>
+      <span>LLM: Gemini 2.5 Flash / DeepSeek</span>
+      <span>Published by: @parker.render</span>
+    </div>
+  </div>
+
+  <h2>1. What Makes an AI Agent "Autonomous"?</h2>
+  <p>Standard ChatGPT prompts are linear: you ask, it answers. An <strong>Autonomous Agent</strong> can plan, call external tools (execute code, search the web, query databases), observe outputs, correct mistakes in a loop, and persist memory across sessions.</p>
+
+  <h2>2. Complete 20-Line Production Agent Script</h2>
+  <pre><code>from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_community.tools import DuckDuckGoSearchRun
+from langgraph.prebuilt import create_react_agent
+from langgraph.checkpoint.sqlite import SqliteSaver
+import sqlite3
+
+# 1. Initialize Ultra-fast LLM & Tools
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+tools = [DuckDuckGoSearchRun()]
+
+# 2. Add Persistent SQLite Session Memory
+conn = sqlite3.connect("agent_memory.db", check_same_thread=False)
+memory = SqliteSaver(conn)
+
+# 3. Compile Autonomous ReAct Cyclic Graph
+agent = create_react_agent(llm, tools=tools, checkpointer=memory)
+
+# 4. Execute Multi-step Goal
+config = {"configurable": {"thread_id": "session_001"}}
+result = agent.invoke(
+    {"messages": [("user", "Find the current stock price of NVIDIA and calculate 15% dividend yield.")]},
+    config=config
+)
+
+print(result["messages"][-1].content)</code></pre>
+
+  <h2>3. Key Production Features</h2>
+  <ul>
+    <li><strong>Cyclic Decision Loop:</strong> If a tool returns an error, the agent self-heals by rewriting the query automatically.</li>
+    <li><strong>Zero Server Costs:</strong> Runs 100% locally on your machine terminal using free-tier Gemini Flash API.</li>
+    <li><strong>Threaded Checkpointing:</strong> Resumes conversation context anytime using <code>thread_id</code>.</li>
+  </ul>
+
+  <div class="footer">Delivered automatically by @parker.render • https://parker-render.netlify.app/bot</div>
+</body>
+</html>

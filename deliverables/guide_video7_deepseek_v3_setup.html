@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeepSeek V3 Local & Cursor IDE Setup: 100x Cheaper than Claude 3.7</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #fff; line-height: 1.6; font-size: 13px; }
+    .header { border-bottom: 3px solid #0284c7; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { display: inline-block; background: #f0f9ff; color: #0284c7; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px; border: 1px solid #bae6fd; }
+    h1 { font-size: 25px; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: #64748b; font-weight: 500; }
+    .meta-bar { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    h2 { font-size: 16px; font-weight: 800; color: #1e293b; margin-top: 20px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ""; display: inline-block; width: 6px; height: 18px; background: #0284c7; border-radius: 3px; }
+    p { margin-bottom: 10px; color: #334155; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+    pre { background: #0f172a; color: #f8fafc; font-family: monospace; font-size: 11.5px; padding: 14px; border-radius: 8px; overflow-x: auto; margin: 10px 0; line-height: 1.5; }
+    code { background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    ol, ul { margin-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; color: #334155; }
+    .footer { margin-top: 32px; border-top: 1px solid #e2e8f0; padding-top: 14px; text-align: center; font-size: 11px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Master Class Deliverable • Video #7</div>
+    <h1>DeepSeek V3 Local & Cursor IDE Setup: 100x Cheaper than Claude 3.7</h1>
+    <div class="subtitle">Mixture-of-Experts (MoE) Architecture, Ollama Deployment & Full-Stack Coding Configuration</div>
+    <div class="meta-bar">
+      <span>Model: DeepSeek-V3 671B (MoE)</span>
+      <span>API Cost: $0.14 / 1M Input Tokens</span>
+      <span>Published by: @parker.render</span>
+    </div>
+  </div>
+
+  <h2>1. Why DeepSeek V3 Dominates Coding in 2026</h2>
+  <p>DeepSeek V3 activates only 37B parameters per token out of 671B total using dynamic routing. On SWE-Bench and HumanEval, it achieves parity with Claude 3.7 Sonnet while reducing inference costs by over 90%.</p>
+
+  <h2>2. 1-Click Cursor IDE Integration</h2>
+  <div class="card">
+    <strong>How to replace expensive subscriptions inside Cursor:</strong>
+    <ol>
+      <li>Open Cursor Settings (<code>Ctrl + Shift + J</code>).</li>
+      <li>Navigate to <strong>Models</strong> tab.</li>
+      <li>Turn off OpenAI & Anthropic keys.</li>
+      <li>Under <strong>OpenAI Base URL</strong>, paste: <code>https://api.deepseek.com/v1</code></li>
+      <li>Add API Key from <code>platform.deepseek.com</code>.</li>
+      <li>Add Model Name: <code>deepseek-chat</code> and <code>deepseek-reasoner</code> (R1).</li>
+    </ol>
+  </div>
+
+  <h2>3. Local Offline Inference with Ollama</h2>
+  <pre><code># 1. Install Ollama on Windows / macOS / Linux
+# 2. Pull quantized DeepSeek V3 distilled coding model
+ollama run deepseek-coder-v2:16b
+
+# 3. Test multi-file codebase reasoning via Python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="deepseek-api-key",
+    base_url="https://api.deepseek.com"
+)
+
+response = client.chat.completions.create(
+    model="deepseek-chat",
+    messages=[
+        {"role": "system", "content": "You are a senior full-stack software engineer."},
+        {"role": "user", "content": "Write a production FastAPI authentication middleware with JWT verification."}
+    ],
+    temperature=0.0
+)
+
+print(response.choices[0].message.content)</code></pre>
+
+  <div class="footer">Delivered automatically by @parker.render • https://parker-render.netlify.app/deepseek</div>
+</body>
+</html>
