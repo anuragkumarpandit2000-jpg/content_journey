@@ -127,6 +127,15 @@ def get_instagram_client():
     cl.load_settings(SESSION_PATH)
     return cl
 
+def is_user_following(cl: Client, user_id: int) -> bool:
+    """Check if a specific user follows our account."""
+    try:
+        friendship = cl.user_friendship_v1(user_id)
+        return bool(friendship.followed_by)
+    except Exception as e:
+        logging.warning(f"Could not verify follow status for user {user_id}: {e}")
+        return False
+
 def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = False):
     """Scan reels for new comments and automatically send the promised PDF via DM."""
     if not AUTOPILOT_LEDGER_PATH.exists():
@@ -137,9 +146,10 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
         auto_ledger = json.load(f)
 
     dm_ledger = load_dm_ledger()
-    processed_comment_ids = {r["comment_id"] for r in dm_ledger.get("replies", [])}
-    # Also track (user_id, video_folder) pairs to avoid sending multiple identical DMs to same user on same video
-    processed_user_video = {(r["user_id"], r["folder"]) for r in dm_ledger.get("replies", [])}
+    # Track comments that received the final PDF guide
+    fulfilled_comment_ids = {
+        r["comment_id"] for r in dm_ledger.get("replies", []) if r.get("status") == "SENT"
+    }
 
     uploads = auto_ledger.get("uploads", [])
     if not uploads:
@@ -169,24 +179,42 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
                 username = comment.user.username
                 comment_text = (comment.text or "").strip()
 
-                if c_id in processed_comment_ids:
+                if c_id in fulfilled_comment_ids:
                     continue
 
-                # User requirement: "kuchh bhi type krenge to usnke dm me chla jaye mera pdf and specific video ke hisaab se"
-                # Any comment on this reel qualifies, or matches keywords
                 logging.info(f"  ⚡ New Comment from @{username}: '{comment_text}' on [{folder}]")
 
-                formatted_msg = config["message"].format(username=username)
+                # Verify Follower Status
+                following = is_user_following(cl, int(user_id))
+                logging.info(f"    Follower status for @{username}: {'FOLLOWING ✅' if following else 'NOT FOLLOWING ❌'}")
+
+                if following:
+                    # Send Full Deliverable PDF Guide
+                    formatted_msg = config["message"].format(username=username)
+                    status_flag = "SENT"
+                    log_action = "Delivering Solution PDF Guide"
+                else:
+                    # Send Follow-Gate Unlock Prompt
+                    formatted_msg = (
+                        f"Hey @{username}! 🔒\n\n"
+                        f"Aapka requested '{config['title']}' ready hai!\n"
+                        f"Lekin download link unlock karne ke liye pehle @parker.render ko FOLLOW karein ✨\n\n"
+                        f"👉 https://www.instagram.com/parker.render/\n\n"
+                        f"Follow karne ke baad reel par dobara comment karein ya yahan 'DONE' likhein — aapka PDF guide instantly unlock ho jayega! 🚀"
+                    )
+                    status_flag = "PENDING_FOLLOW"
+                    log_action = "Sending Follow-Gate Prompt"
 
                 if dry_run:
-                    logging.info(f"    [DRY RUN] Would send DM to @{username} (ID: {user_id})")
-                    logging.info(f"    Message Preview: {formatted_msg[:120]}...")
+                    logging.info(f"    [DRY RUN] {log_action} to @{username} (ID: {user_id})")
+                    logging.info(f"    Status: {status_flag}")
+                    logging.info(f"    Message Preview: {formatted_msg[:100]}...")
                 else:
                     # Send Instagram Direct Message
                     try:
-                        logging.info(f"    Sending DM to @{username}...")
+                        logging.info(f"    {log_action} to @{username}...")
                         cl.direct_send(text=formatted_msg, user_ids=[int(user_id)])
-                        logging.info(f"    ✅ DM sent successfully to @{username}!")
+                        logging.info(f"    ✅ DM sent successfully to @{username} (Status: {status_flag})!")
 
                         # Like commenter's comment as acknowledgment
                         try:
@@ -203,11 +231,14 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
                             "folder": folder,
                             "media_code": media_code,
                             "comment_text": comment_text,
+                            "following": following,
                             "sent_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "status": "SENT"
+                            "status": status_flag
                         })
                         save_dm_ledger(dm_ledger)
-                        processed_comment_ids.add(c_id)
+
+                        if following:
+                            fulfilled_comment_ids.add(c_id)
 
                         # Sleep to respect Instagram rate limits
                         time.sleep(3)
