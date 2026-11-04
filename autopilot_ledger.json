@@ -1,0 +1,52 @@
+{
+  "uploads": [
+    {
+      "folder": "video#3",
+      "video_path": "D:\\anurag\\content_journey\\videos\\video#3\\out\\video3_optimized.mp4",
+      "media_code": "DfR1vvDSRus",
+      "reel_url": "https://www.instagram.com/reel/DfR1vvDSRus/",
+      "uploaded_at": "2026-11-03 17:36:16",
+      "status": "UPLOADED"
+    },
+    {
+      "folder": "video#1",
+      "video_path": "D:\\anurag\\content_journey\\videos\\video#1\\out\\master_kinetic_typography_reel.mp4",
+      "media_code": "DfR2LLtSZya",
+      "reel_url": "https://www.instagram.com/reel/DfR2LLtSZya/",
+      "uploaded_at": "2026-11-03 17:42:57",
+      "status": "UPLOADED"
+    },
+    {
+      "folder": "video#2",
+      "video_path": "D:\\anurag\\content_journey\\videos\\video#2\\out\\final_reel.mp4",
+      "media_code": "DfR4E52ylMz",
+      "reel_url": "https://www.instagram.com/reel/DfR4E52ylMz/",
+      "uploaded_at": "2026-11-03 17:56:00",
+      "status": "UPLOADED"
+    },
+    {
+      "folder": "video#4",
+      "video_path": "D:\\anurag\\content_journey\\videos\\video#4\\out\\video4_optimized.mp4",
+      "media_code": "DfR8G0ZyCMA",
+      "reel_url": "https://www.instagram.com/reel/DfR8G0ZyCMA/",
+      "uploaded_at": "2026-11-03 18:31:22",
+      "status": "UPLOADED"
+    },
+    {
+      "folder": "video#5",
+      "video_path": "D:\\anurag\\content_journey\\videos\\video#5\\out\\video5_optimized.mp4",
+      "media_code": "DfSYMa3S048",
+      "reel_url": "https://www.instagram.com/reel/DfSYMa3S048/",
+      "uploaded_at": "2026-11-03 22:37:19",
+      "status": "UPLOADED"
+    },
+    {
+      "folder": "video#6",
+      "video_path": "D:\\anurag\\content_journey\\videos\\video#6\\out\\video6_optimized.mp4",
+      "media_code": "DfTR8Q3S4Xm",
+      "reel_url": "https://www.instagram.com/reel/DfTR8Q3S4Xm/",
+      "uploaded_at": "2026-11-04 07:00:57",
+      "status": "UPLOADED"
+    }
+  ]
+}
