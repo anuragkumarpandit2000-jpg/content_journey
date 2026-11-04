@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2D to 3D AI Masterclass: Generate Game-Ready 3D Assets with Trellis & Blender</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #fff; line-height: 1.6; font-size: 13px; }
+    .header { border-bottom: 3px solid #ec4899; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { display: inline-block; background: #fdf2f8; color: #db2777; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px; border: 1px solid #fbcfe8; }
+    h1 { font-size: 24px; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: #64748b; font-weight: 500; }
+    .meta-bar { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    h2 { font-size: 15px; font-weight: 800; color: #1e293b; margin-top: 18px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ""; display: inline-block; width: 6px; height: 18px; background: #ec4899; border-radius: 3px; }
+    p { margin-bottom: 8px; color: #334155; }
+    pre { background: #0f172a; color: #f8fafc; font-family: monospace; font-size: 11px; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; line-height: 1.5; }
+    code { background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    ul { margin-left: 20px; margin-bottom: 10px; }
+    li { margin-bottom: 4px; color: #334155; }
+    .footer { margin-top: 28px; border-top: 1px solid #e2e8f0; padding-top: 12px; text-align: center; font-size: 11px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Master Class Deliverable • Video #15</div>
+    <h1>2D to 3D AI Masterclass: Generate Game-Ready 3D Assets</h1>
+    <div class="subtitle">Microsoft Trellis, TripoSR & 1-Click Blender Automation Pipeline</div>
+    <div class="meta-bar">
+      <span>AI Engine: Microsoft Trellis / TripoSR</span>
+      <span>3D Software: Blender 4.2+ / Python bpy</span>
+      <span>Published by: @parker.render</span>
+    </div>
+  </div>
+
+  <h2>1. The 2026 3D Generative AI Revolution</h2>
+  <p>Manual 3D modeling from scratch—box modeling, retopology, UV unwrapping, baking ambient occlusion and normal maps—takes days per asset. With <strong>Microsoft Trellis</strong> and <strong>TripoSR</strong>, a single front-facing photograph or AI concept art is transformed into a textured, high-resolution GLB/OBJ mesh in under 10 seconds.</p>
+
+  <h2>2. 1-Click Blender Auto-Import Script (import_ai_mesh.py)</h2>
+  <pre><code>import bpy
+import os
+
+def import_and_optimize_ai_mesh(filepath):
+    # Clear default cube
+    if "Cube" in bpy.data.objects:
+        bpy.data.objects.remove(bpy.data.objects["Cube"], do_unlink=True)
+        
+    # Import GLB/OBJ
+    if filepath.endswith('.glb') or filepath.endswith('.gltf'):
+        bpy.ops.import_scene.gltf(filepath=filepath)
+    elif filepath.endswith('.obj'):
+        bpy.ops.wm.obj_import(filepath=filepath)
+        
+    obj = bpy.context.selected_objects[0]
+    bpy.context.view_layer.objects.active = obj
+    
+    # Auto-smooth normals & Add Decimate modifier for games
+    bpy.ops.object.shade_smooth()
+    mod = obj.modifiers.new(name="Decimate_Optimization", type='DECIMATE')
+    mod.ratio = 0.5  # Reduce 50% polygon count for realtime 60FPS engines
+    
+    print(f"✅ AI Mesh successfully imported and optimized: {obj.name}")
+
+# Run directly inside Blender Scripting Workspace
+import_and_optimize_ai_mesh("D:/assets/trellis_generated_prop.glb")</code></pre>
+
+  <h2>3. Key Production Best Practices</h2>
+  <ul>
+    <li><strong>Input Image Quality:</strong> Use clean white or transparent backgrounds (remove.bg) for sharp silhouettes.</li>
+    <li><strong>PBR Texture Extraction:</strong> Trellis generates albedo, normal, and roughness maps automatically.</li>
+    <li><strong>Unreal Engine / Unity Ready:</strong> Export as compressed glTF / USDZ for immediate game engine placement.</li>
+  </ul>
+
+  <div class="footer">
+    Crafted by <strong>@parker.render</strong> • Visit <a href="https://parker-render.netlify.app">parker-render.netlify.app/3d</a> for updates.
+  </div>
+</body>
+</html>

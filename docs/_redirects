@@ -8,6 +8,15 @@
 /bot /index.html?code=BOT 200
 /4k /index.html?code=4K 200
 /crawl /index.html?code=CRAWL 200
+/local /index.html?code=LOCAL 200
+/ollama /index.html?code=LOCAL 200
+/call /index.html?code=CALL 200
+/livekit /index.html?code=CALL 200
+/cline /index.html?code=CLINE 200
+/cursor /index.html?code=CLINE 200
+/whatsapp /index.html?code=WHATSAPP 200
+/3d /index.html?code=3D 200
+/mesh /index.html?code=3D 200
 /v1 /index.html?code=DRIVE 200
 /v2 /index.html?code=SPEED 200
 /v3 /index.html?code=MACHINE 200
@@ -18,3 +27,8 @@
 /v8 /index.html?code=BOT 200
 /v9 /index.html?code=4K 200
 /v10 /index.html?code=CRAWL 200
+/v11 /index.html?code=LOCAL 200
+/v12 /index.html?code=CALL 200
+/v13 /index.html?code=CLINE 200
+/v14 /index.html?code=WHATSAPP 200
+/v15 /index.html?code=3D 200

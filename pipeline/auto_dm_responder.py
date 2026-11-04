@@ -254,6 +254,91 @@ VIDEO_CONFIG = {
             "• Token-efficient markdown conversion for LLM pipelines\n\n"
             "Portal link par direct PDF aur complete production scraper ready hai! 🚀"
         )
+    },
+    "video#11": {
+        "title": "The 100% Free Local AI Master Guide: Run 70B & DeepSeek Offline",
+        "code": "LOCAL",
+        "keywords": ["local", "ollama", "deepseek", "llama", "70b", "offline", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video11_local_llm_ollama.pdf",
+        "portal_url": f"{PORTAL_BASE}/local",
+        "message": (
+            "Hey @{username}! 🧠⚡ Here is your 100% Free Local AI Master Guide (Run 70B & DeepSeek Offline)!\n\n"
+            "🔗 Direct Blueprint Access (Code: LOCAL):\n"
+            f"{PORTAL_BASE}/local\n\n"
+            "⚡ What you get in this blueprint:\n"
+            "• VRAM / RAM hardware sizing cheat sheet (8B, 14B, 70B quants)\n"
+            "• 1-Line Ollama setup & Dockerized Open WebUI launch commands\n"
+            "• Python OpenAI-compatible drop-in script for unmetered local inference\n\n"
+            "Portal link se direct PDF download karein aur cloud bills ko bye-bye bole! 🚀"
+        )
+    },
+    "video#12": {
+        "title": "Real-Time AI Voice Agent Architecture: LiveKit + WebRTC",
+        "code": "CALL",
+        "keywords": ["call", "voice", "voicebot", "livekit", "phone", "audio", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video12_livekit_voice_agent.pdf",
+        "portal_url": f"{PORTAL_BASE}/call",
+        "message": (
+            "Hey @{username}! 📞⚡ Here is your Real-Time AI Voice Agent Architecture Guide!\n\n"
+            "🔗 Direct Blueprint Access (Code: CALL):\n"
+            f"{PORTAL_BASE}/call\n\n"
+            "⚡ Highlights inside:\n"
+            "• Sub-300ms conversational turn-taking with Silero VAD & Deepgram\n"
+            "• Real-time human interruption cancellation logic\n"
+            "• Complete Python LiveKit voice assistant starter repository\n\n"
+            "Portal link par direct PDF aur telephony template ready hai! 🔥"
+        )
+    },
+    "video#13": {
+        "title": "Cursor AI Killer: Autonomous Coding in VS Code with Cline & DeepSeek",
+        "code": "CLINE",
+        "keywords": ["cline", "cursor", "vscode", "roo", "deepseek", "coding", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video13_cline_cursor_alternative.pdf",
+        "portal_url": f"{PORTAL_BASE}/cline",
+        "message": (
+            "Hey @{username}! 💻🤖 Here is your requested Cursor AI Killer (VS Code + Cline) Setup Blueprint!\n\n"
+            "🔗 Direct Blueprint Access (Code: CLINE):\n"
+            f"{PORTAL_BASE}/cline\n\n"
+            "⚡ Highlights inside:\n"
+            "• Autonomous terminal control & self-healing bug fixes in VS Code\n"
+            "• DeepSeek-V3 API configuration ($0.14/million tokens vs $20/month)\n"
+            "• Tested .clinerules developer template for zero hallucinations\n\n"
+            "Portal link se direct PDF download karein aur Cline setup karein! 🚀"
+        )
+    },
+    "video#14": {
+        "title": "Autonomous WhatsApp AI Assistant with Python & Baileys",
+        "code": "WHATSAPP",
+        "keywords": ["whatsapp", "chat", "chatbot", "bot", "auto", "client", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video14_whatsapp_ai_bot.pdf",
+        "portal_url": f"{PORTAL_BASE}/whatsapp",
+        "message": (
+            "Hey @{username}! 📱💬 Here is your Autonomous WhatsApp AI Agent Architecture Guide!\n\n"
+            "🔗 Direct Blueprint Access (Code: WHATSAPP):\n"
+            f"{PORTAL_BASE}/whatsapp\n\n"
+            "⚡ Highlights inside:\n"
+            "• 24/7 autonomous client receptionist using Python & Baileys Webhook\n"
+            "• Anti-ban human typing delay & automatic session recovery protocol\n"
+            "• Automated PDF quotes dispatch & Google Calendar meeting scheduling\n\n"
+            "Portal link par direct PDF aur complete FastAPI bridge script ready hai! 🚀"
+        )
+    },
+    "video#15": {
+        "title": "2D to 3D AI Masterclass: Generate Game-Ready 3D Assets with Trellis & Blender",
+        "code": "3D",
+        "keywords": ["3d", "trellis", "triposr", "blender", "mesh", "model", "render", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video15_ai_3d_mesh_blender.pdf",
+        "portal_url": f"{PORTAL_BASE}/3d",
+        "message": (
+            "Hey @{username}! 🗿✨ Here is your 2D to 3D AI Masterclass & Blender Automation Blueprint!\n\n"
+            "🔗 Direct Blueprint Access (Code: 3D):\n"
+            f"{PORTAL_BASE}/3d\n\n"
+            "⚡ Highlights inside:\n"
+            "• 1-Click Blender Python auto-import & polygon decimation script\n"
+            "• Microsoft Trellis & TripoSR local/API generation environment\n"
+            "• Game-ready PBR texture generation (Albedo, Normal, Roughness)\n\n"
+            "Portal link par direct PDF download karein aur Blender addon copy karein! 🎨"
+        )
     }
 }
 

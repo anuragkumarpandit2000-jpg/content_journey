@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The 100% Free Local AI Master Guide: Run 70B & DeepSeek Without API Bills</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #fff; line-height: 1.6; font-size: 13px; }
+    .header { border-bottom: 3px solid #8b5cf6; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { display: inline-block; background: #ede9fe; color: #6d28d9; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px; border: 1px solid #ddd6fe; }
+    h1 { font-size: 24px; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: #64748b; font-weight: 500; }
+    .meta-bar { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    h2 { font-size: 15px; font-weight: 800; color: #1e293b; margin-top: 18px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ""; display: inline-block; width: 6px; height: 18px; background: #8b5cf6; border-radius: 3px; }
+    p { margin-bottom: 8px; color: #334155; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; margin: 10px 0; }
+    pre { background: #0f172a; color: #f8fafc; font-family: monospace; font-size: 11px; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; line-height: 1.5; }
+    code { background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    ol, ul { margin-left: 20px; margin-bottom: 10px; }
+    li { margin-bottom: 4px; color: #334155; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 12px; }
+    th, td { border: 1px solid #e2e8f0; padding: 8px 10px; text-align: left; }
+    th { background: #f1f5f9; color: #0f172a; font-weight: 700; }
+    .footer { margin-top: 28px; border-top: 1px solid #e2e8f0; padding-top: 12px; text-align: center; font-size: 11px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Master Class Deliverable • Video #11</div>
+    <h1>The 100% Free Local AI Master Guide: Run 70B & DeepSeek Offline</h1>
+    <div class="subtitle">Ollama, 4-Bit GGUF Quantization, Open WebUI & Zero Cloud API Invoices</div>
+    <div class="meta-bar">
+      <span>Runtime: Ollama + llama.cpp</span>
+      <span>Models: DeepSeek-R1 / LLaMA 3.3 / Qwen 2.5</span>
+      <span>Published by: @parker.render</span>
+    </div>
+  </div>
+
+  <h2>1. Why Run Models Locally?</h2>
+  <p>Cloud LLM APIs (OpenAI, Anthropic) bill you per token, throttle high concurrency, and transmit sensitive client IP over third-party servers. With <strong>Ollama + GGUF</strong>, you get unmetered, zero-cost inference running completely offline on your workstation GPU or unified memory.</p>
+
+  <h2>2. Hardware Sizing & Recommended Quants</h2>
+  <table>
+    <tr><th>VRAM / Unified RAM</th><th>Recommended Model</th><th>Quantization</th><th>Tokens/sec</th></tr>
+    <tr><td>8 GB VRAM</td><td>DeepSeek-R1-Distill-Qwen-8B</td><td>Q4_K_M</td><td>35-45 t/s</td></tr>
+    <tr><td>16 GB VRAM</td><td>Qwen 2.5 Coder 14B / DeepSeek 14B</td><td>Q4_K_M</td><td>25-35 t/s</td></tr>
+    <tr><td>24 GB - 32 GB</td><td>DeepSeek-R1 32B / LLaMA 3.3 70B</td><td>Q4_K_S / IQ3_M</td><td>15-22 t/s</td></tr>
+    <tr><td>64 GB+ (Mac M-series)</td><td>LLaMA 3.3 70B / DeepSeek-R1 70B</td><td>Q4_K_M</td><td>12-18 t/s</td></tr>
+  </table>
+
+  <h2>3. 3-Minute Setup Script (Windows / Mac / Linux)</h2>
+  <pre><code># 1. Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+# On Windows: Download installer from https://ollama.com/download
+
+# 2. Pull & Run DeepSeek-R1 Distill or LLaMA 3.3
+ollama run deepseek-r1:8b
+# For coding tasks:
+ollama run qwen2.5-coder:14b
+
+# 3. Launch Dockerized Open WebUI (ChatGPT clone locally)
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway \
+  -v open-webui:/app/backend/data --name open-webui --restart always \
+  ghcr.io/open-webui/open-webui:main</code></pre>
+
+  <h2>4. Python Integration via OpenAI-Compatible API</h2>
+  <pre><code>from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://localhost:11434/v1",
+    api_key="ollama" # Required by client, ignored by Ollama
+)
+
+response = client.chat.completions.create(
+    model="deepseek-r1:8b",
+    messages=[{"role": "user", "content": "Write an async web crawler in Python."}]
+)
+print(response.choices[0].message.content)</code></pre>
+
+  <div class="footer">
+    Crafted by <strong>@parker.render</strong> • Visit <a href="https://parker-render.netlify.app">parker-render.netlify.app/local</a> for updates.
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time AI Voice Agent Architecture: LiveKit + WebRTC + Gemini Live</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #fff; line-height: 1.6; font-size: 13px; }
+    .header { border-bottom: 3px solid #06b6d4; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { display: inline-block; background: #ecfeff; color: #0891b2; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px; border: 1px solid #cffafe; }
+    h1 { font-size: 24px; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: #64748b; font-weight: 500; }
+    .meta-bar { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    h2 { font-size: 15px; font-weight: 800; color: #1e293b; margin-top: 18px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ""; display: inline-block; width: 6px; height: 18px; background: #06b6d4; border-radius: 3px; }
+    p { margin-bottom: 8px; color: #334155; }
+    pre { background: #0f172a; color: #f8fafc; font-family: monospace; font-size: 11px; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; line-height: 1.5; }
+    code { background: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    ul { margin-left: 20px; margin-bottom: 10px; }
+    li { margin-bottom: 4px; color: #334155; }
+    .footer { margin-top: 28px; border-top: 1px solid #e2e8f0; padding-top: 12px; text-align: center; font-size: 11px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Master Class Deliverable • Video #12</div>
+    <h1>Real-Time AI Voice Agent Architecture: LiveKit + WebRTC</h1>
+    <div class="subtitle">Sub-300ms Conversational Voice Agents with Natural Turn-Taking & Tool Execution</div>
+    <div class="meta-bar">
+      <span>Framework: LiveKit Agents (Python)</span>
+      <span>STT/TTS: Deepgram Nova-2 / Cartesia / Gemini Live</span>
+      <span>Published by: @parker.render</span>
+    </div>
+  </div>
+
+  <h2>1. The 300ms Glass-Smooth Voice Architecture</h2>
+  <p>Traditional voice pipelines chain HTTP requests (Whisper STT -> GPT-4 Text -> ElevenLabs TTS), resulting in frustrating 2.5s+ latency. <strong>LiveKit Agents</strong> uses bidirectional WebRTC audio streaming to process audio chunks in real time with Voice Activity Detection (VAD) and instant interruption cancellation.</p>
+
+  <h2>2. Installation & Prerequisites</h2>
+  <pre><code>pip install livekit-agents livekit-plugins-deepgram livekit-plugins-openai livekit-plugins-silero</code></pre>
+
+  <h2>3. Production Python Voice Agent (agent.py)</h2>
+  <pre><code>import asyncio
+from livekit.agents import AutoSubscribe, JobContext, WorkerOptions, cli, llm
+from livekit.agents.voice_assistant import VoiceAssistant
+from livekit.plugins import deepgram, openai, silero
+
+async def entrypoint(ctx: JobContext):
+    await ctx.connect(auto_subscribe=AutoSubscribe.AUDIO_ONLY)
+    
+    chat_context = llm.ChatContext().append(
+        role="system",
+        text="You are a professional voice receptionist for Parker Studio. Speak naturally in bilingual Hindi/English. Keep answers under 2 sentences."
+    )
+    
+    assistant = VoiceAssistant(
+        vad=silero.VAD.load(),
+        stt=deepgram.STT(),
+        llm=openai.LLM(model="gpt-4o-mini"),
+        tts=openai.TTS(voice="alloy"),
+        chat_ctx=chat_context,
+    )
+    
+    assistant.start(ctx.room)
+    await assistant.say("Namaste! Parker Studio me aapka swagat hai. Main aapki kya madad kar sakta hoon?", allow_interruptions=True)
+
+if __name__ == "__main__":
+    cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint))</code></pre>
+
+  <h2>4. Key Production Features</h2>
+  <ul>
+    <li><strong>Natural Interruptions:</strong> User bolna shuru karte hi assistant bina latency ke chup ho jaata hai.</li>
+    <li><strong>Function Calling:</strong> Direct Google Calendar API call karke appointments auto-schedule karna.</li>
+    <li><strong>Telephony SIP Trunking:</strong> Normal phone numbers (Twilio / Plivo) se direct WebRTC bridge.</li>
+  </ul>
+
+  <div class="footer">
+    Crafted by <strong>@parker.render</strong> • Visit <a href="https://parker-render.netlify.app">parker-render.netlify.app/call</a> for updates.
+  </div>
+</body>
+</html>
