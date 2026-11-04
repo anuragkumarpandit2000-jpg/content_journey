@@ -15,16 +15,19 @@ if hasattr(sys.stderr, 'reconfigure'):
 from instagrapi import Client
 from instagrapi.exceptions import LoginRequired
 
+ROOT_DIR = Path("D:/anurag/content_journey")
+LOG_PATH = ROOT_DIR / "auto_dm.log"
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
     handlers=[
-        logging.StreamHandler(sys.stdout)
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler(LOG_PATH, encoding='utf-8')
     ]
 )
 
-ROOT_DIR = Path("D:/anurag/content_journey")
 SESSION_PATH = ROOT_DIR / "session.json"
 AUTOPILOT_LEDGER_PATH = ROOT_DIR / "autopilot_ledger.json"
 DM_LEDGER_PATH = ROOT_DIR / "auto_dm_ledger.json"
