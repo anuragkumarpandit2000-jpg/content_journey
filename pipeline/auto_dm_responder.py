@@ -415,7 +415,10 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
         logging.info("No published reels in ledger.")
         return
 
-    for upload in uploads:
+    # Check recent reels (last 4) to prevent Instagram rate-limiting, unless target specified
+    active_uploads = [u for u in uploads if u.get("media_code") == target_media_code] if target_media_code else (uploads[-4:] if len(uploads) > 4 else uploads)
+
+    for upload in active_uploads:
         folder = upload.get("folder")
         media_code = upload.get("media_code")
         if not media_code or folder not in VIDEO_CONFIG:
@@ -443,26 +446,14 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
 
                 logging.info(f"  ⚡ New Comment from @{username}: '{comment_text}' on [{folder}]")
 
-                # Verify Follower Status
+                # Verify Follower Status (for logs)
                 following = is_user_following(cl, int(user_id))
                 logging.info(f"    Follower status for @{username}: {'FOLLOWING ✅' if following else 'NOT FOLLOWING ❌'}")
 
-                if following:
-                    # Send Full Deliverable PDF Guide
-                    formatted_msg = config["message"].format(username=username)
-                    status_flag = "SENT"
-                    log_action = "Delivering Solution PDF Guide"
-                else:
-                    # Send Follow-Gate Unlock Prompt
-                    formatted_msg = (
-                        f"Hey @{username}! 🔒\n\n"
-                        f"Aapka requested '{config['title']}' ready hai!\n"
-                        f"Lekin VIP Blueprint Vault unlock karne ke liye pehle @parker.render ko FOLLOW karein ✨\n\n"
-                        f"👉 https://www.instagram.com/parker.render/\n\n"
-                        f"Follow karne ke baad reel par dobara comment karein ya yahan 'DONE' likhein — aapka direct portal link (Code: {config['code']}) instantly unlock ho jayega! 🚀"
-                    )
-                    status_flag = "PENDING_FOLLOW"
-                    log_action = "Sending Follow-Gate Prompt"
+                # Directly deliver the Solution PDF Guide immediately on comment
+                formatted_msg = config["message"].format(username=username)
+                status_flag = "SENT"
+                log_action = "Delivering Solution PDF Guide"
 
                 if dry_run:
                     logging.info(f"    [DRY RUN] {log_action} to @{username} (ID: {user_id})")
@@ -484,9 +475,7 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
 
                         # Public reply to comment notifying them to check their DM
                         try:
-                            reply_text = random.choice(
-                                REPLY_TEMPLATES_FOLLOWING if following else REPLY_TEMPLATES_NOT_FOLLOWING
-                            ).format(username=username)
+                            reply_text = random.choice(REPLY_TEMPLATES_FOLLOWING).format(username=username)
                             cl.media_comment(
                                 media_id=str(media_pk),
                                 text=reply_text,
@@ -509,9 +498,7 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
                             "status": status_flag
                         })
                         save_dm_ledger(dm_ledger)
-
-                        if following:
-                            fulfilled_comment_ids.add(c_id)
+                        fulfilled_comment_ids.add(c_id)
 
                         # Sleep to respect Instagram rate limits
                         time.sleep(3)
@@ -521,6 +508,8 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
 
         except Exception as e:
             logging.error(f"  Error processing media {media_code} ({folder}): {e}")
+        finally:
+            time.sleep(random.uniform(2.5, 4.0))
 
 def run_responder(loop_mode=False, interval_sec=30, dry_run=False):
     """Main runner for auto DM responder with ultra-fast sub-minute response."""

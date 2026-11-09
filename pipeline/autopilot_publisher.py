@@ -23,11 +23,14 @@ def _patched_password_publickeys(self):
 
 PasswordMixin.password_publickeys = _patched_password_publickeys
 
+from datetime import datetime
+
 # Root directory configuration
 ROOT_DIR = Path("D:/anurag/content_journey")
 ENV_PATH = ROOT_DIR / ".env"
 SESSION_PATH = ROOT_DIR / "session.json"
 LEDGER_PATH = ROOT_DIR / "autopilot_ledger.json"
+MANIFEST_PATH = ROOT_DIR / "reels_schedule_manifest.json"
 VIDEOS_DIR = ROOT_DIR / "videos"
 
 def load_env():
@@ -63,10 +66,23 @@ def extract_video_number(folder_name):
     match = re.search(r'\d+', folder_name)
     return int(match.group()) if match else 9999
 
+def load_manifest_schedule():
+    """Load scheduling dates from manifest if available."""
+    if MANIFEST_PATH.exists():
+        try:
+            with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return {r["video_id"]: r for r in data.get("reels", [])}
+        except Exception:
+            return {}
+    return {}
+
 def find_next_video(target_specific=None):
     """Scan videos/ directory for rendered master reels and find the next unposted one."""
     ledger = load_ledger()
     uploaded_folders = {u["folder"] for u in ledger.get("uploads", []) if u.get("status") == "UPLOADED"}
+    manifest_map = load_manifest_schedule()
+    today_str = datetime.now().strftime("%Y-%m-%d")
 
     candidate_folders = []
     if target_specific:
@@ -89,6 +105,13 @@ def find_next_video(target_specific=None):
         folder_name = folder.name
         if folder_name in uploaded_folders and not target_specific:
             continue
+
+        # Respect scheduled publish dates
+        if not target_specific and folder_name in manifest_map:
+            sched_date = manifest_map[folder_name].get("publish_date")
+            if sched_date and sched_date > today_str:
+                # Video is scheduled for future date - keep queued
+                continue
 
         out_dir = folder / "out"
         if not out_dir.exists():
@@ -299,9 +322,9 @@ def run_autopilot(target_specific=None, dry_run=False):
         # Step 6: Post-Upload Automation Sync (Netlify & Auto DM Responder)
         print("\n[AUTOPILOT] Step 6: Syncing Netlify portal & activating Auto DM Responder...")
         try:
-            deploy_script = ROOT_DIR / "pipeline" / "deploy_netlify.mjs"
+            deploy_script = ROOT_DIR / "pipeline" / "deploy_netlify_direct.py"
             if deploy_script.exists():
-                subprocess.run(["node", str(deploy_script)], cwd=str(ROOT_DIR), check=False)
+                subprocess.run([sys.executable, str(deploy_script)], cwd=str(ROOT_DIR), check=False)
                 print("  ✅ Netlify Portal synced and live at https://parker-render.netlify.app!")
         except Exception as netlify_err:
             print(f"  [WARN] Netlify sync warning: {netlify_err}")
