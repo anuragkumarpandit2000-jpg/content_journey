@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GTA 6 vs GTA 5: The ₹16,000 Crore AI Comparison Blueprint & Secret Tech Specs</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; background: #fff; line-height: 1.6; font-size: 13px; }
+    .header { border-bottom: 3px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { display: inline-block; background: #fffbeb; color: #d97706; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 8px; border: 1px solid #fde68a; }
+    h1 { font-size: 24px; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: #64748b; font-weight: 500; }
+    .meta-bar { display: flex; justify-content: space-between; margin-top: 12px; font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    h2 { font-size: 15px; font-weight: 800; color: #1e293b; margin-top: 18px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    h2::before { content: ""; display: inline-block; width: 6px; height: 18px; background: #f59e0b; border-radius: 3px; }
+    p { margin-bottom: 8px; color: #334155; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; }
+    .card-title { font-weight: 800; font-size: 12px; margin-bottom: 6px; text-transform: uppercase; }
+    .card-gta5 { border-top: 3px solid #ef4444; }
+    .card-gta6 { border-top: 3px solid #22c55e; }
+    ul { margin-left: 20px; margin-bottom: 10px; }
+    li { margin-bottom: 4px; color: #334155; }
+    pre { background: #0f172a; color: #f8fafc; font-family: monospace; font-size: 11px; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; line-height: 1.5; }
+    .footer { margin-top: 28px; border-top: 1px solid #e2e8f0; padding-top: 12px; text-align: center; font-size: 11px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Master Class Deliverable • Video #26</div>
+    <h1>GTA 6 vs GTA 5: The ₹16,000 Crore AI Comparison Blueprint</h1>
+    <div class="subtitle">Next-Gen RAGE 9 Physics, Vehicle Deformation & Autonomous NPC Architecture</div>
+    <div class="meta-bar">
+      <span>Target Engine: RAGE 9 / Rockstar Games</span>
+      <span>Budget: $2,000,000,000 (₹16,000 Crore)</span>
+      <span>Curated by: @parker.render</span>
+    </div>
+  </div>
+
+  <h2>1. Overview: The ₹16,000 Crore Paradigm Shift</h2>
+  <p>GTA 5 was developed in 2013 on a $265 Million budget for PS3/Xbox 360 hardware. In contrast, GTA 6 represents over a decade of R&D with a record-shattering $2 Billion budget, built from the ground up for 16-core multi-threaded CPUs, ray-traced global illumination, and procedural simulation networks.</p>
+
+  <h2>2. Feature Comparison Matrix</h2>
+  <div class="grid">
+    <div class="card card-gta5">
+      <div class="card-title" style="color: #ef4444;">GTA 5 (2013 | RAGE 8)</div>
+      <ul>
+        <li><strong>Driving:</strong> Arcade physics, rigid center of mass, pre-baked car dents.</li>
+        <li><strong>Water:</strong> Static displacement shaders, simple splash particle triggers.</li>
+        <li><strong>NPCs:</strong> Static path loops, basic panic reactions, zero individual memory.</li>
+        <li><strong>Map & World:</strong> 90% sealed doors, loading screens between key interiors.</li>
+        <li><strong>Budget:</strong> $265 Million.</li>
+      </ul>
+    </div>
+    <div class="card card-gta6">
+      <div class="card-title" style="color: #22c55e;">GTA 6 (2026 | RAGE 9)</div>
+      <ul>
+        <li><strong>Driving:</strong> Real metal crumpling, independent suspension, dynamic tire friction.</li>
+        <li><strong>Water:</strong> Real-time Navier-Stokes fluid sim, buoyancy, anatomical ragdolls.</li>
+        <li><strong>NPCs:</strong> Dynamic routine graphs, in-game social media livestreaming.</li>
+        <li><strong>Map & World:</strong> 70%+ seamless enterable interiors (supermarkets, clubs, malls).</li>
+        <li><strong>Budget:</strong> $2,000,000,000 (₹16,000 Crore).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>3. How to Emulate GTA 6 Shader & Physics in Blender 4.x / 5.x</h2>
+  <p>To replicate GTA 6 Vice City golden-hour volumetric lighting in Blender Cycles or Eevee Next:</p>
+  <pre><code># Blender Python Console: Enable Dynamic Physical Atmosphere
+import bpy
+world = bpy.context.scene.world
+world.use_nodes = True
+nodes = world.node_tree.nodes
+nodes.clear()
+
+# Add Nishita Sky Texture & Volume Scatter
+sky = nodes.new(type='ShaderNodeTexSky')
+sky.sky_type = 'NISHITA'
+sky.sun_elevation = 0.26  # Golden Hour Vice City Angle
+sky.air_density = 1.35
+sky.dust_density = 2.10
+
+output = nodes.new(type='ShaderNodeOutputWorld')
+world.node_tree.links.new(sky.outputs['Color'], output.inputs['Surface'])
+print("Vice City Cinematic Lighting Activated!")</code></pre>
+
+  <div class="footer">
+    © 2026 @parker.render • Autonomous Content Pipeline • Netlify Portal: parker-render.netlify.app
+  </div>
+</body>
+</html>

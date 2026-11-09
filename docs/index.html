@@ -116,8 +116,19 @@
 
       <!-- Quick Code Filter Pills -->
       <div class="flex flex-wrap items-center justify-center gap-1.5 mt-4 text-xs font-mono">
-        <button onclick="filterByCode('')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-colors">All (15)</button>
-                <button onclick="jumpToCode('3D')" class="px-2.5 py-1 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 border border-pink-500/30 text-pink-400 font-semibold transition-colors">#3D</button>
+        <button onclick="filterByCode('')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-colors">All (25)</button>
+        <button onclick="jumpToCode('GTA')" class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-400 font-semibold transition-colors">#GTA</button>
+        <button onclick="jumpToCode('CODE')" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-semibold transition-colors">#CODE</button>
+        <button onclick="jumpToCode('INGEST')" class="px-2.5 py-1 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 text-sky-400 font-semibold transition-colors">#INGEST</button>
+        <button onclick="jumpToCode('VIDEO')" class="px-2.5 py-1 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 border border-pink-500/30 text-pink-400 font-semibold transition-colors">#VIDEO</button>
+        <button onclick="jumpToCode('FLOW')" class="px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 font-semibold transition-colors">#FLOW</button>
+        <button onclick="jumpToCode('CAP')" class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-400 font-semibold transition-colors">#CAP</button>
+        <button onclick="jumpToCode('VOICE')" class="px-2.5 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-400 font-semibold transition-colors">#VOICE</button>
+        <button onclick="jumpToCode('WHISPER')" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-semibold transition-colors">#WHISPER</button>
+        <button onclick="jumpToCode('CAL')" class="px-2.5 py-1 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 font-semibold transition-colors">#CAL</button>
+        <button onclick="jumpToCode('CHAT')" class="px-2.5 py-1 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 text-teal-400 font-semibold transition-colors">#CHAT</button>
+        <button onclick="jumpToCode('BOOST')" class="px-2.5 py-1 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 font-semibold transition-colors">#BOOST</button>
+        <button onclick="jumpToCode('3D')" class="px-2.5 py-1 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 border border-pink-500/30 text-pink-400 font-semibold transition-colors">#3D</button>
         <button onclick="jumpToCode('WHATSAPP')" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-semibold transition-colors">#WHATSAPP</button>
         <button onclick="jumpToCode('CLINE')" class="px-2.5 py-1 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 text-teal-400 font-semibold transition-colors">#CLINE</button>
         <button onclick="jumpToCode('CALL')" class="px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 font-semibold transition-colors">#CALL</button>
@@ -137,7 +148,336 @@
 
     <!-- Resource Cards Grid -->
     <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- CARD 15: 3D (Video #15) -->
+            
+      <!-- CARD 16: CODE (Video #16) -->
+      <div id="card-CODE" data-code="CODE" data-aliases="V16,OPENCODE,COHERE,CLAUDE" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold tracking-wider">CODE: CODE</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #16 • AI Coding Agent</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">OpenCode & North Mini Code: 100% Free Autonomous Local AI Coding Agent</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Stop paying $20/month for Claude Code subscriptions that throttle your work mid-code! OpenCode and North Mini Code bring state-of-the-art 30B MoE reasoning directly into your terminal with zero cloud bills.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• 1-Click OpenCode CLI installation & local environment config</div>
+            <div>• Cohere 30B MoE model (active 3B params) benchmarked at 33.4 score</div>
+            <div>• Autonomous codebase scanning, error self-healing & PR generation</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video16_opencode_cohere_30b.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-all shadow-md shadow-emerald-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video16_opencode_cohere_30b.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 17: INGEST (Video #17) -->
+      <div id="card-INGEST" data-code="INGEST" data-aliases="V17,GITINGEST,GITHUB,PROMPT" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-sky-500/15 border border-sky-500/30 text-sky-400 text-xs font-mono font-bold tracking-wider">CODE: INGEST</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #17 • Developer Cheat Code</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">GitIngest: 1-Click Entire GitHub Repository to Clean LLM Context Prompt</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Stop copying and pasting 50 different source files one by one into ChatGPT! GitIngest turns any public or private GitHub repository into a single structured markdown prompt with a complete file tree in one click.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• Replace 'hub' with 'ingest' in any GitHub URL for instant digestion</div>
+            <div>• Exact token calculation to prevent LLM context window overflows</div>
+            <div>• GitIngest CLI tool for local offline repositories and private branches</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video17_gitingest_repo_prompt.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xs transition-all shadow-md shadow-sky-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video17_gitingest_repo_prompt.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 18: VIDEO (Video #18) -->
+      <div id="card-VIDEO" data-code="VIDEO" data-aliases="V18,HYPERFRAMES,REMOTION,REACT" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-pink-500/15 border border-pink-500/30 text-pink-400 text-xs font-mono font-bold tracking-wider">CODE: VIDEO</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #18 • Programmatic Video</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">HyperFrames & Remotion: Programmatic Code-to-Video Engine at 60 FPS</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Premiere Pro crashes and manual subtitle alignment are history! Build programmatic motion graphics and viral 9:16 vertical video reels entirely with React, TypeScript, and hardware-accelerated Chrome rendering.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• Master Remotion composition boilerplate with synchronized audio ducking</div>
+            <div>• Dynamic word-by-word highlighted captions with spring physics</div>
+            <div>• 1-Click CLI batch render scripts with concurrency controls</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video18_hyperframes_code_video.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold text-xs transition-all shadow-md shadow-pink-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video18_hyperframes_code_video.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 19: FLOW (Video #19) -->
+      <div id="card-FLOW" data-code="FLOW" data-aliases="V19,APPFLOWY,NOTION,OFFLINE" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold tracking-wider">CODE: FLOW</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #19 • Zero-Cost SaaS Twin</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">AppFlowy: The 100% Free Open-Source Offline Notion Killer</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Break free from Notion cloud outages, data telemetry, and costly AI subscriptions. AppFlowy gives you blazing-fast 60 FPS document editing, Kanban boards, and local AI running 100% offline on your device.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• 100% offline-first architecture with local SQLite database storage</div>
+            <div>• Native Kanban boards, relational tables, and nested wiki documentation</div>
+            <div>• Built-in local LLM support for AI chat, summarization, and task drafting</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video19_appflowy_offline_notion.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-xs transition-all shadow-md shadow-cyan-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video19_appflowy_offline_notion.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 20: CAP (Video #20) -->
+      <div id="card-CAP" data-code="CAP" data-aliases="V20,CAP,LOOM,SCREENREC" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold tracking-wider">CODE: CAP</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #20 • Zero-Cost SaaS Twin</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">Cap: The 100% Free Open-Source Loom Killer for Creators & Devs</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Stop paying $15/month for Loom's 5-minute video caps and ugly watermarks. Cap gives creators, agencies, and developers unlimited 4K recordings with instant cloud shareable links or direct local MP4 exports.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• Unlimited 4K recording with high-framerate hardware acceleration</div>
+            <div>• Customizable circular floating webcam bubble with auto-centering</div>
+            <div>• Zero monthly subscriptions, zero watermarks, and 100% open source</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video20_cap_screen_recorder.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs transition-all shadow-md shadow-amber-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video20_cap_screen_recorder.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 21: VOICE (Video #21) -->
+      <div id="card-VOICE" data-code="VOICE" data-aliases="V21,F5TTS,ELEVENLABS,TTS" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-400 text-xs font-mono font-bold tracking-wider">CODE: VOICE</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #21 • Voice AI Masterclass</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">F5-TTS: Zero-Shot Voice Cloning Free Alternative to ElevenLabs</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Commercial AI voice services drain your budget with strict monthly character credits. F5-TTS uses Flow Matching diffusion to clone any voice with lifelike breathing and emotional nuances from a 5-second sample.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• Zero-shot cloning from a clean 5-second reference audio snippet</div>
+            <div>• Realtime voice synthesis on consumer GPUs (NVIDIA RTX or Mac Apple Silicon)</div>
+            <div>• Zero monthly credits, zero licensing fees, and 100% unrestricted generation</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video21_f5_tts_voice_cloning.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs transition-all shadow-md shadow-purple-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video21_f5_tts_voice_cloning.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 22: WHISPER (Video #22) -->
+      <div id="card-WHISPER" data-code="WHISPER" data-aliases="V22,WHISPERCPP,SUBTITLES,TRANSCRIPTION" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold tracking-wider">CODE: WHISPER</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #22 • Speech-to-Text Engine</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">Whisper.cpp: High-Speed Offline Speech-to-Text on Plain CPU</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Transcribe podcasts, long video lessons, and confidential meetings at 10x real-time speed. Whisper.cpp strips away heavy Python dependencies and runs OpenAI's Whisper model on plain laptop CPUs with zero GPU.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• 10x faster execution than standard PyTorch Whisper on consumer CPUs</div>
+            <div>• Automatic generation of timestamped SRT, VTT, and CSV subtitle tracks</div>
+            <div>• 100% offline and confidential—zero meeting audio sent over the cloud</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video22_whisper_cpp_fast_transcribe.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-all shadow-md shadow-emerald-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video22_whisper_cpp_fast_transcribe.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 23: CAL (Video #23) -->
+      <div id="card-CAL" data-code="CAL" data-aliases="V23,CALCOM,CALENDLY,BOOKING" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 text-xs font-mono font-bold tracking-wider">CODE: CAL</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #23 • Zero-Cost SaaS Twin</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">Cal.com: Open-Source Enterprise Calendly Alternative with 0% Fee</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Stop paying $144/year to Calendly just to let clients pick meeting slots. Cal.com is the world's leading open-source booking infrastructure with unlimited event types, custom branding, and zero platform commission.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• Unlimited booking event types, collective scheduling, and round-robin routing</div>
+            <div>• Two-way synchronization with Google Calendar, Microsoft Outlook, and Apple</div>
+            <div>• Direct client payment collection via Stripe or Razorpay with 0% platform cuts</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video23_calcom_scheduling_infrastructure.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition-all shadow-md shadow-indigo-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video23_calcom_scheduling_infrastructure.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 24: CHAT (Video #24) -->
+      <div id="card-CHAT" data-code="CHAT" data-aliases="V24,CHATWOOT,ZENDESK,INTERCOM" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-teal-500/15 border border-teal-500/30 text-teal-400 text-xs font-mono font-bold tracking-wider">CODE: CHAT</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #24 • Omnichannel Support</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">Chatwoot: Open-Source Customer Engagement & WhatsApp AI Hub</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Replace exorbitant $70/agent Intercom and Zendesk bills with Chatwoot. Consolidate incoming WhatsApp inquiries, Instagram direct messages, support emails, and website live chat into one unified dashboard with AI triage.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• Unified shared inbox for WhatsApp API, Instagram DMs, Telegram, and Email</div>
+            <div>• Deploy AI chatbots to automatically resolve up to 80% of customer inquiries</div>
+            <div>• Unlimited team agents, private team notes, and CSAT customer satisfaction ratings</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video24_chatwoot_omnichannel_support.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs transition-all shadow-md shadow-teal-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video24_chatwoot_omnichannel_support.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+
+      <!-- CARD 25: BOOST (Video #25) -->
+      <div id="card-BOOST" data-code="BOOST" data-aliases="V25,WINUTIL,OPTIMIZATION,WINDOWS" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-red-500/15 border border-red-500/30 text-red-400 text-xs font-mono font-bold tracking-wider">CODE: BOOST</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #25 • System Turbocharging</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">WinUtil: Boost Windows 10/11 Performance by 200% with 1 Line</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Windows 11 runs over 180 background processes that hog CPU, drain laptop batteries, and throttle developer compilation times. WinUtil drops active processes down to ~60 with a single safe, open-source PowerShell script.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• 1-Click safe debloat: removes Cortana, Edge background bloat, and tracking</div>
+            <div>• Disables unnecessary Microsoft telemetry, diagnostic loggers, and Bing search</div>
+            <div>• Unlocks hidden 'Ultimate Performance' power plan for gaming and coding</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video25_winutil_windows_optimization.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-xs transition-all shadow-md shadow-red-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video25_winutil_windows_optimization.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 26: GTA (Video #26) -->
+      <div id="card-GTA" data-code="GTA" data-aliases="V26,GTA6,GTAVI,ROCKSTAR,PHYSICS,LEAKS" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold tracking-wider">CODE: GTA</span>
+            <span class="text-[11px] font-semibold text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded">Video #26 • Gaming AI & RAGE 9</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mb-2 leading-snug">GTA 6 vs GTA 5: The ₹16,000 Crore AI Comparison Blueprint & Secret Leaks Guide</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+            Detailed technical breakdown of Rockstar's $2 Billion Next-Gen RAGE 9 engine: real-time metal crumple & suspension physics, Navier-Stokes dynamic fluid simulation, autonomous NPC social media livestreams, and 70%+ seamless enterable interiors.
+          </p>
+          <div class="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 mb-5 font-mono text-[11px] space-y-1.5 text-slate-300">
+            <div class="text-slate-400 font-semibold text-[10px] uppercase tracking-wider mb-1">⚡ Deliverables Included:</div>
+            <div>• Complete GTA 6 vs GTA 5 Physics & Engine Architecture Matrix</div>
+            <div>• Real vehicle deformation, weight transfer, and Navier-Stokes fluid formulas</div>
+            <div>• Leaked Leonida state map architecture (2.5x larger than Los Santos)</div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-800/60 flex flex-wrap items-center gap-2">
+          <a href="pdf/guide_video26_gta6_vs_gta5_comparison.pdf" download class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs transition-all shadow-md shadow-amber-600/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download PDF Guide
+          </a>
+          <a href="pdf/guide_video26_gta6_vs_gta5_comparison.pdf" target="_blank" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition-colors">
+            View PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 15: 3D (Video #15) -->
       <div id="card-3D" data-code="3D" data-aliases="V15,TRELLIS,MESH" class="resource-card glow-card bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between">
         <div>
           <div class="flex items-center justify-between mb-4">

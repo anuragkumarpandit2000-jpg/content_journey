@@ -339,6 +339,26 @@ VIDEO_CONFIG = {
             "• Game-ready PBR texture generation (Albedo, Normal, Roughness)\n\n"
             "Portal link par direct PDF download karein aur Blender addon copy karein! 🎨"
         )
+    },
+    "video#26": {
+        "title": "GTA 6 vs GTA 5: The ₹16,000 Crore AI Comparison Blueprint & 4K Leak Assets",
+        "code": "GTA",
+        "keywords": ["gta", "gta6", "gtavi", "leak", "leaks", "car", "physics", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video26_gta6_vs_gta5_comparison.pdf",
+        "portal_url": f"{PORTAL_BASE}/gta",
+        "message": (
+            "Hey @{username}! 🚗💥 Here is your GTA 6 vs GTA 5 Comparison Blueprint & Secret Leaks Guide!\n\n"
+            "📄 Direct PDF Guide Link (Click to Open Instantly):\n"
+            f"{PORTAL_BASE}/pdf/guide_video26_gta6_vs_gta5_comparison.pdf\n\n"
+            "🔗 Direct Vault Link:\n"
+            f"{PORTAL_BASE}/gta\n\n"
+            "⚡ Key Highlights Inside:\n"
+            "• RAGE 9 Vehicle Deformation & Real Suspension Physics Breakdown\n"
+            "• Dynamic Buoyancy & Ocean Fluid Simulation Mechanics\n"
+            "• AI-Driven NPC Social Media Livestream System\n"
+            "• 70%+ Enterable Interiors Map Architecture\n\n"
+            "Link par click karte hi direct PDF document khul jayega! 🎮"
+        )
     }
 }
 
