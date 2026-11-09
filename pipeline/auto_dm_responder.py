@@ -428,6 +428,10 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
     fulfilled_comment_ids = {
         r["comment_id"] for r in dm_ledger.get("replies", []) if r.get("status") == "SENT"
     }
+    # Track users who have already been sent the follow-gate notice to avoid repeated DM spam
+    gate_notified_user_ids = {
+        r["user_id"] for r in dm_ledger.get("replies", []) if r.get("status") == "WAITING_FOLLOW"
+    }
 
     uploads = auto_ledger.get("uploads", [])
     if not uploads:
@@ -469,10 +473,29 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
                 following = is_user_following(cl, int(user_id))
                 logging.info(f"    Follower status for @{username}: {'FOLLOWING ✅' if following else 'NOT FOLLOWING ❌'}")
 
-                # Directly deliver the Solution PDF Guide immediately on comment
-                formatted_msg = config["message"].format(username=username)
-                status_flag = "SENT"
-                log_action = "Delivering Solution PDF Guide"
+                if following:
+                    # User is FOLLOWING! Deliver the Solution PDF Guide immediately
+                    formatted_msg = config["message"].format(username=username)
+                    status_flag = "SENT"
+                    log_action = "Delivering Solution PDF Guide (Follower Unlocked)"
+                    reply_template_list = REPLY_TEMPLATES_FOLLOWING
+                else:
+                    # User is NOT FOLLOWING yet! Check if they were already sent the gate invite
+                    if user_id in gate_notified_user_ids:
+                        logging.info(f"    ⏳ @{username} already received follow-gate invite. Waiting for them to follow...")
+                        continue
+
+                    # Send Follow-Gate Unlock Invite in DM
+                    formatted_msg = (
+                        f"Hey @{username}! 🔒✨\n\n"
+                        f"Aapka requested '{config.get('title', 'Exclusive')}' blueprint aur PDF guide bilkul ready hai!\n\n"
+                        "⚠️ Yeh exclusive resource sirf hamare active followers ke liye unlocked hai.\n\n"
+                        "👉 Step 1: Hume FOLLOW karein 👉 @parker.render\n"
+                        "👉 Step 2: Follow karte hi yeh blueprint link aapke DM me automatically deliver ho jayega! 🚀"
+                    )
+                    status_flag = "WAITING_FOLLOW"
+                    log_action = "Sending Follow-Gate Unlock Invite"
+                    reply_template_list = REPLY_TEMPLATES_NOT_FOLLOWING
 
                 if dry_run:
                     logging.info(f"    [DRY RUN] {log_action} to @{username} (ID: {user_id})")
@@ -494,7 +517,7 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
 
                         # Public reply to comment notifying them to check their DM
                         try:
-                            reply_text = random.choice(REPLY_TEMPLATES_FOLLOWING).format(username=username)
+                            reply_text = random.choice(reply_template_list).format(username=username)
                             cl.media_comment(
                                 media_id=str(media_pk),
                                 text=reply_text,
@@ -517,7 +540,11 @@ def process_comments(cl: Client, target_media_code: str = None, dry_run: bool = 
                             "status": status_flag
                         })
                         save_dm_ledger(dm_ledger)
-                        fulfilled_comment_ids.add(c_id)
+
+                        if status_flag == "SENT":
+                            fulfilled_comment_ids.add(c_id)
+                        elif status_flag == "WAITING_FOLLOW":
+                            gate_notified_user_ids.add(user_id)
 
                         # Sleep to respect Instagram rate limits
                         time.sleep(3)
@@ -554,6 +581,9 @@ def run_responder(loop_mode=False, interval_sec=30, dry_run=False):
                     process_comments(cl, dry_run=dry_run)
                 except Exception as e:
                     logging.error(f"Error during polling cycle: {e}")
+                    if "feedback_required" in str(e).lower() or "limit" in str(e).lower():
+                        logging.warning("⚠️ Instagram rate limit detected (feedback_required). Backing off for 5 minutes...")
+                        time.sleep(300)
                 time.sleep(interval_sec)
         else:
             process_comments(cl, dry_run=dry_run)
