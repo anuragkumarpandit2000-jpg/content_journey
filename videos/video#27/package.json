@@ -1,0 +1,15 @@
+{
+    "description":  "Viral Tech Reel #25",
+    "name":  "content-journey-video-25",
+    "version":  "1.0.0",
+    "dependencies":  {
+                         "remotion":  "4.0.539",
+                         "react":  "^18.2.0",
+                         "react-dom":  "^18.2.0",
+                         "@remotion/cli":  "4.0.539"
+                     },
+    "scripts":  {
+                    "start":  "remotion preview src/index.ts",
+                    "render":  "remotion render src/index.ts MasterReel out/master_reel.mp4"
+                }
+}
