@@ -206,6 +206,24 @@
       "portal_link": "docs/index.html#card-GTA",
       "comment_keyword": "GTA",
       "status": "SCHEDULED"
+    },
+    {
+      "slot": 12,
+      "video_id": "video#27",
+      "publish_date": "2026-11-17",
+      "publish_time_ist": "19:00:00",
+      "title": "Google Secret Audio Spying: Stop Microphone Ad Tracking",
+      "topic": "Mobile Privacy, Google Account Telemetry & Audio Security",
+      "voice": "Gemini Live TTS (Puck)",
+      "repo": "https://myaccount.google.com/data-and-privacy",
+      "primary_advantage": "Permanently pauses Google ambient audio logging and eliminates spooky targeted ads in 30 seconds",
+      "video_path": "D:/anurag/content_journey/videos/video#27/out/video27_optimized.mp4",
+      "thumbnail_path": "D:/anurag/content_journey/videos/video#27/thumb_cover.jpg",
+      "caption_file": "D:/anurag/content_journey/videos/video#27/caption.txt",
+      "pdf_guide": "D:/anurag/content_journey/docs/pdf/guide_video27_google_microphone_privacy.pdf",
+      "portal_link": "docs/index.html#card-STOP",
+      "comment_keyword": "STOP",
+      "status": "SCHEDULED"
     }
   ]
 }

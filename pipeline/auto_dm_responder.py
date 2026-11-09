@@ -359,6 +359,25 @@ VIDEO_CONFIG = {
             "• 70%+ Enterable Interiors Map Architecture\n\n"
             "Link par click karte hi direct PDF document khul jayega! 🎮"
         )
+    },
+    "video#27": {
+        "title": "Google Microphone Audio Surveillance Lockdown Blueprint & Cheatsheet",
+        "code": "STOP",
+        "keywords": ["stop", "privacy", "mic", "google", "spy", "ad", "shoes", "shoe", "audio", "listen", "link", "bhejo", "send", "pls", "please"],
+        "pdf_name": "guide_video27_google_microphone_privacy.pdf",
+        "portal_url": f"{PORTAL_BASE}/stop",
+        "message": (
+            "Hey @{username}! 🛡️🔇 Here is your Google Microphone Privacy & Audio Surveillance Lockdown Guide!\n\n"
+            "📄 Direct PDF Guide Link (Click to Open Instantly):\n"
+            f"{PORTAL_BASE}/pdf/guide_video27_google_microphone_privacy.pdf\n\n"
+            "🔗 Direct Vault Link:\n"
+            f"{PORTAL_BASE}/stop\n\n"
+            "⚡ Key Steps Inside:\n"
+            "• Stop 'Include voice and audio recordings' background logging\n"
+            "• Auto-Delete 3-Month Acoustic Log Flush\n"
+            "• Revoke background mic permissions from third-party apps\n\n"
+            "Link par click karte hi direct PDF document khul jayega! 🔒"
+        )
     }
 }
 
